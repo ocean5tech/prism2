@@ -319,3 +319,51 @@ External Design → Internal Design → Documentation Updates → Code Implement
 **Verification**: Test your documented solution works before committing
 
 This documentation maintenance is not optional - it's a critical part of the development process that saves significant time for future work.
+
+## 🧪 API Validation vs Testing Rules
+
+### **IMPORTANT DISTINCTION**: Validation vs Testing
+
+When working with APIs, there are two distinct verification approaches with different expectations:
+
+#### **🔍 API Validation (验证)**
+**Purpose**: Check if an API endpoint is active and reachable
+**Requirement**: HTTP 200 status code response
+**Acceptance Criteria**:
+- ✅ Service responds (not timeout)
+- ✅ Returns HTTP 200 OK
+- ❌ Content validation not required
+
+**Example**: "验证股票数据API是否可用"
+- Just verify `GET /api/stock/ping` returns 200
+- Response content can be `{"status": "ok"}` - this is sufficient
+
+#### **🧪 API Testing (测试)**
+**Purpose**: Validate API functionality and meaningful response data
+**Requirement**: HTTP 200 status code + meaningful content validation
+**Acceptance Criteria**:
+- ✅ Service responds with 200
+- ✅ Response contains expected data structure
+- ✅ Data content is meaningful and correct
+- ✅ Internal API calls (if any) are working properly
+
+**Example**: "测试股票数据API"
+- Verify `GET /api/stock/data?symbol=000001` returns 200
+- Validate response contains actual stock data: price, volume, timestamps
+- Check data freshness and accuracy
+- Verify underlying data sources are functioning
+
+#### **🚨 Critical Difference**
+Many APIs return 200 status but contain error messages or empty data due to:
+- Internal service dependencies failing
+- Database connection issues
+- External API rate limits
+- Data source unavailability
+
+**Validation**: Accepts 200 with any response
+**Testing**: Requires 200 with meaningful, accurate data
+
+#### **Usage Guidelines**
+- Use **"验证" (Validation)** when checking service availability during system setup
+- Use **"测试" (Testing)** when verifying business logic and data accuracy
+- Always specify which approach you want when requesting API checks
