@@ -1,0 +1,16 @@
+[
+  {
+    "id": "macro_pmi_analysis_1758081807",
+    "content": "中国宏观经济景气度深度分析\n\n【PMI指标解读】\n最新PMI数据：50\n数据时间：2008年01月份\n\n【经济景气度判断】\n经济接近荣枯线，制造业活动趋于平稳，需关注政策支持\n\n【对股市影响分析】\n1. 制造业影响：PMI数据直接反映制造业景气程度，影响周期股表现\n2. 货币政策预期：PMI数据影响央行货币政策预期，进而影响市场流动性\n3. 行业轮动：不同PMI水平下，各行业表现分化明显\n\n【投资策略建议】\n基于当前PMI水平，建议：\n1.防御性配置为主 2.关注消费、医药等防御品种 3.降低风险敞口\n\n【风险提示】\n宏观数据存在滞后性，需结合其他先行指标综合判断经济走势。",
+    "metadata": {
+      "source": "宏观经济研究",
+      "doc_type": "macro_analysis",
+      "indicator": "PMI",
+      "pmi_value": 50.0,
+      "analysis_period": "2008年01月份",
+      "data_source": "akshare_macro_pmi",
+      "importance": 9,
+      "content_type": "macro_insight"
+    }
+  }
+]

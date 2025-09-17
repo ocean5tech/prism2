@@ -1,0 +1,22 @@
+{
+  "archive_info": {
+    "creation_date": "2025-09-17T11:47:55.191917",
+    "archive_version": "1.0.0",
+    "total_documents": 10,
+    "data_sources": [
+      "akshare_stock_data",
+      "akshare_cctv_news"
+    ],
+    "archive_purpose": "Complete financial data archive for RAG system reconstruction",
+    "archive_format": "JSON with full metadata and raw data",
+    "reconstruction_instructions": "Use this archive to rebuild RAG database without re-downloading"
+  },
+  "documents": [
+    {
+      "document_id": "archive_akshare_stock_data_dd4bb6a49042",
+      "document_hash": "dd4bb6a49042",
+      "collection_timestamp": "2025-09-17T11:47:36.674681",
+      "raw_data": {
+        "original_response": {
+          "日期": {
+            "0": 

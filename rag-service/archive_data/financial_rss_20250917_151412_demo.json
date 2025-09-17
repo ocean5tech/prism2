@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "data_type": "rss_news",
+    "created_at": "2025-09-17T15:14:12.470458",
+    "file_size": 452,
+    "record_count": 0,
+    "data_hash": "c7f76d80750944e80885c519e87074cb",
+    "source": "test",
+    "quality": "high"
+  },
+  "data": {
+    "articles": [
+      {
+        "title": "测试新闻1",
+        "content": "测试内容1"
+      },
+      {
+        "title": "测试新闻2",
+        "content": "测试内容2"
+      }
+    ]
+  }
+}
