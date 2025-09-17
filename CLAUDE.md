@@ -8,8 +8,11 @@ Prism2 is a comprehensive stock analysis platform built with a modern microservi
 
 ## Project Structure
 
-This is currently an early-stage project with architectural documentation in place. The codebase contains:
+This project contains implemented RAG core functionality with comprehensive documentation:
 - `/docs/architecture-design.md` - Comprehensive technical architecture document
+- `/docs/external-design.md` - External interface design specifications
+- `/docs/基础设施.md` - Infrastructure requirements and setup guide
+- `/docs/internal-design/rag-service.md` - Internal design documentation for RAG service
 - `/docs/LessonsLearned.md` - **⚠️ MUST READ** - Critical lessons learned and troubleshooting guide
 - `/docs/基础设施.log` - Infrastructure installation log with detailed progress
 - `README.md` - Setup instructions for VS Code integration with WSL
