@@ -1,0 +1,218 @@
+version: '3.8'
+
+services:
+  # ===== 基础设施层 =====
+
+  postgres:
+    image: timescale/timescaledb:latest-pg15
+    container_name: prism2-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: prism2
+      POSTGRES_USER: prism2
+      POSTGRES_PASSWORD: prism2_secure_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    restart: unless-stopped
+    healthcheck:
+      test: pg_isready -U prism2 -d prism2
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: prism2-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 2gb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: redis-cli ping
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  nginx:
+    image: nginx:alpine
+    container_name: prism2-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - frontend
+      - backend
+    restart: unless-stopped
+    healthcheck:
+      test: curl -f http://localhost/health || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ===== AI模型层 =====
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: prism2-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  # ===== 应用服务层 =====
+
+  backend:
+    image: python:3.12-slim
+    container_name: prism2-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      - DATABASE_URL=postgresql://prism2:prism2_secure_password@postgres:5432/prism2
+      - REDIS_URL=redis://redis:6379
+      - OLLAMA_URL=http://ollama:11434
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  rag-service:
+    image: python:3.12-slim
+    container_name: prism2-rag
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./rag-service:/app
+      - rag_vectors:/app/vectors
+      - chromadb_data:/app/chromadb
+    working_dir: /app
+    command: uvicorn main:app --host 0.0.0.0 --port 8001
+    environment:
+      - DATABASE_URL=postgresql://prism2:prism2_secure_password@postgres:5432/prism2
+      - REDIS_URL=redis://redis:6379/2
+      - CHROMADB_HOST=chromadb
+      - CHROMADB_PORT=8000
+      - EMBEDDING_MODEL=sentence-transformers/bge-large-zh-v1.5
+      - VECTOR_STORE_PATH=/app/vectors
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      chromadb:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ChromaDB 向量数据库 (RAG核心组件)
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: prism2-chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chromadb_data:/chroma/chroma
+    environment:
+      - CHROMA_SERVER_HOST=0.0.0.0
+      - CHROMA_SERVER_HTTP_PORT=8000
+      - PERSIST_DIRECTORY=/chroma/chroma
+      # 明确清除代理设置，防止企业代理干扰
+      - http_proxy=
+      - https_proxy=
+      - HTTP_PROXY=
+      - HTTPS_PROXY=
+      - no_proxy=localhost,127.0.0.1,::1
+      - NO_PROXY=localhost,127.0.0.1,::1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  push-service:
+    image: python:3.12-slim
+    container_name: prism2-push
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./push-service:/app
+    working_dir: /app
+    command: uvicorn main:app --host 0.0.0.0 --port 8002
+    environment:
+      - REDIS_URL=redis://redis:6379/1
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    image: node:18-alpine
+    container_name: prism2-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    command: npm run dev
+    environment:
+      - REACT_APP_API_URL=http://localhost/api/v1
+      - REACT_APP_WS_URL=ws://localhost/ws
+    restart: unless-stopped
+
+  # ===== 批处理任务 =====
+
+  batch-crawler:
+    image: python:3.12-slim
+    container_name: prism2-batch
+    volumes:
+      - ./batch-service:/app
+    working_dir: /app
+    command: python scheduler.py
+    environment:
+      - DATABASE_URL=postgresql://prism2:prism2_secure_password@postgres:5432/prism2
+      - REDIS_URL=redis://redis:6379/3
+      - RAG_SERVICE_URL=http://rag-service:8001
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    # 夜间批处理，仅在2:00-6:00运行
+    deploy:
+      replicas: 1
+
+volumes:
+  postgres_data:
+  redis_data:
+  ollama_data:
+  rag_vectors:
+  chromadb_data:
+
+networks:
+  default:
+    name: prism2-network

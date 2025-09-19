@@ -163,37 +163,45 @@ The project follows a phased development approach:
 
 **❗ CRITICAL PRINCIPLE**: This project follows **strict documentation-first development**. You MUST adhere to this workflow:
 
-#### **1. Documentation-First Development Process**
+#### **1. Pre-Development Analysis and Planning**
 
 **🔄 REQUIRED WORKFLOW**:
 ```
-External Design → Internal Design → Documentation Updates → Code Implementation
+Problem Analysis → Codebase Review → Documentation Review → Task Planning → User Approval → Implementation
 ```
 
 **⚠️ FORBIDDEN WORKFLOW**:
 ```
 ❌ Code Implementation → Document Updates (NEVER DO THIS)
+❌ Implementation without Task Planning (NEVER DO THIS)
 ```
 
-#### **2. Development Process Rules**
+#### **2. Mandatory Pre-Implementation Steps**
 
-**BEFORE writing any code**:
-1. **Read External Design** (`/docs/external-design.md`) - Understand the requirements
-2. **Read Internal Design** (`/docs/internal-design/{module-name}.md`) - Check implementation specs
-3. **Verify Documentation Consistency** - Ensure internal matches external design
-4. **Update Documentation First** - If any design needs modification
+**BEFORE writing any code, you MUST**:
+1. **Think Through the Problem** - Analyze requirements and understand the full scope
+2. **Read the Codebase** - Review relevant existing files and understand current implementation
+3. **Read External Design** (`/docs/external-design.md`) - Understand the requirements
+4. **Read Internal Design** (`/docs/internal-design/{module-name}.md`) - Check implementation specs
+5. **Verify Documentation Consistency** - Ensure internal matches external design
+6. **Create Task Plan** - Write a detailed plan to `tasks/todo.md` with checkable todo items
+7. **User Approval** - Check in with user and get verification of the plan before proceeding
+8. **Update Documentation First** - If any design needs modification
 
 **IF you find issues with design documents**:
 1. **STOP coding immediately**
 2. **Update the relevant documentation first**
 3. **Verify consistency across all related documents**
-4. **THEN proceed with code implementation**
+4. **Include fixes in your task plan**
+5. **Get user approval for updated plan**
+6. **THEN proceed with code implementation**
 
-#### **3. Development Log System**
+#### **3. Task Planning and Tracking System**
 
-**📋 MANDATORY LOGGING**: Each internal design document has a corresponding development log:
+**📋 MANDATORY TASK PLANNING**: All development work must use structured task planning:
 
 ```
+/tasks/todo.md                   ← Primary task planning document
 /docs/internal-design/
 ├── frontend-module.md
 ├── frontend-module.log          ← Development progress log
@@ -204,14 +212,23 @@ External Design → Internal Design → Documentation Updates → Code Implement
 └── ...
 ```
 
-**🔄 LOG UPDATE REQUIREMENTS**:
+**🔄 TASK PLANNING REQUIREMENTS**:
 
-**When to update logs**:
-- **Start development** on a module
-- **Complete each major feature/API**
-- **Encounter and solve problems**
-- **Before ending each development session**
-- **When resuming after interruption**
+**Task Plan Structure** (`tasks/todo.md`):
+- **Problem Analysis**: Clear statement of what needs to be solved
+- **Codebase Review Summary**: Key files and components identified
+- **Todo Items**: Checkable list of specific tasks
+- **Implementation Notes**: Any important considerations
+- **Review Section**: Summary of changes made (added after completion)
+
+**When to update task plans and logs**:
+- **Before starting any work** - Create comprehensive task plan
+- **During development** - Check off completed todo items
+- **After each task** - Provide high-level explanation of changes made
+- **Complete each major feature/API** - Update development logs
+- **Encounter and solve problems** - Document in both todo.md and logs
+- **Before ending each development session** - Update progress
+- **When resuming after interruption** - Review and update plans
 
 **Log format** (follow `/docs/基础设施.log` example):
 ```
@@ -270,33 +287,70 @@ External Design → Internal Design → Documentation Updates → Code Implement
 **验证结果**: {修复验证}
 ```
 
-#### **4. Checkpoint Recovery System**
+#### **4. Code Quality and Simplicity Principles**
+
+**🎯 FUNDAMENTAL PRINCIPLES**: These principles guide all development work:
+
+**SIMPLICITY REQUIREMENTS**:
+- **Minimal Impact**: Every change should impact as little code as possible
+- **Single Purpose**: Each task should have one clear, focused objective
+- **Avoid Complexity**: No massive or complex changes - break them into simple steps
+- **Incremental Progress**: Small, verifiable changes that build toward the goal
+- **Clean Implementation**: Code should be as simple as humanly possible
+
+**QUALITY STANDARDS**:
+- **Senior Developer Mindset**: Approach problems with professional thoroughness
+- **Root Cause Analysis**: Always find and fix the actual problem, never temporary fixes
+- **No Lazy Solutions**: Every bug must be properly diagnosed and permanently resolved
+- **Bug Prevention**: Goal is to not introduce any new bugs through changes
+- **Professional Standards**: All work must meet senior developer quality expectations
+
+**COMMUNICATION REQUIREMENTS**:
+- **High-Level Explanations**: Provide clear explanation of what changes were made after each task
+- **Progress Transparency**: Keep user informed throughout the development process
+- **Change Summaries**: Document all modifications in the review section
+
+#### **5. Checkpoint Recovery System**
 
 **🔄 SESSION RESUMPTION**: When returning to development after interruption:
 
-1. **Read the relevant `.log` file** to understand current status
-2. **Verify last checkpoint** - what was completed vs. what's pending
-3. **Check for any blockers** mentioned in the log
-4. **Update documentation** if any design changes are needed
-5. **Continue from documented checkpoint**
+1. **Read the task plan** (`tasks/todo.md`) to understand current progress
+2. **Read the relevant `.log` file** to understand detailed status
+3. **Verify last checkpoint** - what was completed vs. what's pending
+4. **Check for any blockers** mentioned in logs or todo items
+5. **Update documentation** if any design changes are needed
+6. **Continue from documented checkpoint** with user approval if needed
 
-#### **5. Enforcement Rules**
+#### **6. Enforcement Rules**
 
 **⚠️ VIOLATIONS**: The following are **STRICTLY PROHIBITED**:
 
 - ❌ Writing code without reading documentation first
+- ❌ Writing code without creating a task plan first
+- ❌ Starting implementation without user approval of the plan
 - ❌ Modifying code without updating documentation
 - ❌ Skipping development log updates
 - ❌ Implementing features not defined in internal design
 - ❌ Changing APIs without updating external design first
+- ❌ Making temporary fixes instead of finding root causes
+- ❌ Being lazy or taking shortcuts
+- ❌ Making complex changes when simple ones will work
+- ❌ Proceeding without explaining changes to the user
 
 **✅ REQUIRED PRACTICES**:
 
-- ✅ Always start with documentation review
+- ✅ Always start with problem analysis and codebase review
+- ✅ Create comprehensive task plan before any implementation
+- ✅ Get user approval before starting work
 - ✅ Update documents before code changes
-- ✅ Maintain detailed development logs
-- ✅ Use logs as checkpoints for resuming work
+- ✅ Maintain detailed development logs and task tracking
+- ✅ Use logs and todo.md as checkpoints for resuming work
 - ✅ Ensure design consistency across all modules
+- ✅ Make all changes as simple and minimal as possible
+- ✅ Find and fix root causes of all problems
+- ✅ Provide high-level explanations of all changes made
+- ✅ Complete review sections in todo.md after finishing tasks
+- ✅ Approach all work with senior developer standards
 
 ### LessonsLearned.md Update Protocol
 
@@ -370,3 +424,35 @@ Many APIs return 200 status but contain error messages or empty data due to:
 - Use **"验证" (Validation)** when checking service availability during system setup
 - Use **"测试" (Testing)** when verifying business logic and data accuracy
 - Always specify which approach you want when requesting API checks
+
+---
+
+## 🎯 Integrated Development Rules Summary
+
+The Prism2 project combines documentation-first development with task-driven execution. Every development session MUST follow this integrated workflow:
+
+### **Pre-Development (MANDATORY)**
+1. **Think Through Problem** - Analyze requirements completely
+2. **Read Codebase** - Understand existing implementation
+3. **Review Documentation** - Check external/internal designs
+4. **Create Task Plan** - Write comprehensive plan to `tasks/todo.md`
+5. **Get User Approval** - Verify plan before starting work
+
+### **During Development (MANDATORY)**
+6. **Simple Implementation** - Make minimal, incremental changes
+7. **Track Progress** - Check off todo items as completed
+8. **Communicate Changes** - Provide high-level explanations
+9. **Update Logs** - Maintain development logs continuously
+
+### **Post-Development (MANDATORY)**
+10. **Complete Review** - Add summary to `tasks/todo.md`
+11. **Update Documentation** - Ensure consistency
+12. **Verify Quality** - Senior developer standards applied
+
+### **Quality Standards (NON-NEGOTIABLE)**
+- ✅ **Find Root Causes** - No temporary fixes, ever
+- ✅ **Senior Developer Approach** - Professional thoroughness
+- ✅ **Simplicity Focus** - Minimal impact, maximum clarity
+- ✅ **Bug Prevention** - Goal is zero new bugs introduced
+
+This workflow ensures consistent, high-quality development while maintaining the project's architectural integrity and documentation standards.

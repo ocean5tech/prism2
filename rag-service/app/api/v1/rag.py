@@ -139,7 +139,7 @@ async def start_bootstrap(
 async def get_bootstrap_progress(task_id: str, db: Session = Depends(get_db)):
     """查询初始化进度"""
     try:
-        task = db.query(BootstrapTask).filter(BootstrapTask.task_id == task_id).first()
+        task = db.query(BootstrapTask).filter(BootstrapTask.task_id == uuid.UUID(task_id)).first()
 
         if not task:
             raise HTTPException(status_code=404, detail="任务不存在")
@@ -151,7 +151,7 @@ async def get_bootstrap_progress(task_id: str, db: Session = Depends(get_db)):
             estimated_remaining = 120.0  # 默认2小时
 
         return BootstrapProgress(
-            task_id=task.task_id,
+            task_id=str(task.task_id),
             status=task.status,
             progress_percentage=task.progress_percentage,
             processed_documents=task.processed_documents,
@@ -242,7 +242,7 @@ async def _execute_bootstrap_task(task_id: str, request: BootstrapRequest, db: S
         logger.info(f"开始执行初始化任务: {task_id}")
 
         # 更新任务状态
-        task = db.query(BootstrapTask).filter(BootstrapTask.task_id == task_id).first()
+        task = db.query(BootstrapTask).filter(BootstrapTask.task_id == uuid.UUID(task_id)).first()
         if task:
             task.status = "running"
             task.current_stage = "数据采集"
@@ -263,7 +263,7 @@ async def _execute_bootstrap_task(task_id: str, request: BootstrapRequest, db: S
     except Exception as e:
         logger.error(f"执行初始化任务失败: {str(e)}")
         # 更新任务为失败状态
-        task = db.query(BootstrapTask).filter(BootstrapTask.task_id == task_id).first()
+        task = db.query(BootstrapTask).filter(BootstrapTask.task_id == uuid.UUID(task_id)).first()
         if task:
             task.status = "failed"
             task.error_count += 1

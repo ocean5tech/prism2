@@ -1,5 +1,6 @@
 import logging
 import time
+import os
 from typing import List, Dict, Any, Optional, Tuple
 import chromadb
 from chromadb.config import Settings as ChromaSettings
@@ -13,27 +14,56 @@ logger = logging.getLogger(__name__)
 
 
 class VectorService:
-    """向量检索服务 - ChromaDB向量数据库操作封装"""
+    """向量检索服务 - ChromaDB向量数据库操作封装 (单例模式)"""
+
+    _instance = None
+    _initialized = False
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
 
     def __init__(self):
-        self.client = None
-        self.collections = {}
-        self._connected = False
-        self.chroma_host = settings.chromadb_host
-        self.chroma_port = settings.chromadb_port
-        self.default_collection_name = settings.chromadb_collection
+        if not self._initialized:
+            self.client = None
+            self.collections = {}
+            self._connected = False
+            # 支持Docker环境变量，优先使用Docker服务名
+            self.chroma_host = os.getenv("CHROMADB_HOST", getattr(settings, 'chromadb_host', 'chromadb'))
+            self.chroma_port = int(os.getenv("CHROMADB_PORT", str(getattr(settings, 'chromadb_port', 8000))))
+            self.default_collection_name = settings.chromadb_collection
+            VectorService._initialized = True
 
     def connect(self) -> bool:
         """连接ChromaDB数据库"""
         try:
+            # 如果已连接且客户端有效，直接返回
+            if self._connected and self.client is not None:
+                try:
+                    self.client.heartbeat()
+                    return True
+                except Exception:
+                    logger.warning("现有连接已失效，重新连接")
+                    self._connected = False
+
             logger.info(f"连接ChromaDB服务器: {self.chroma_host}:{self.chroma_port}")
 
-            # 创建ChromaDB客户端
+            # 关闭现有连接（如果有）
+            if self.client is not None:
+                try:
+                    self.client.reset()
+                except Exception:
+                    pass
+                self.client = None
+
+            # 创建新的ChromaDB客户端
             self.client = chromadb.HttpClient(
                 host=self.chroma_host,
                 port=self.chroma_port,
                 settings=ChromaSettings(
-                    anonymized_telemetry=False
+                    anonymized_telemetry=False,
+                    allow_reset=True
                 )
             )
 
@@ -42,7 +72,8 @@ class VectorService:
             logger.info("ChromaDB连接成功")
             self._connected = True
 
-            # 初始化默认集合
+            # 清空集合缓存，重新初始化
+            self.collections.clear()
             self._initialize_default_collection()
 
             return True
@@ -50,6 +81,7 @@ class VectorService:
         except Exception as e:
             logger.error(f"ChromaDB连接失败: {str(e)}")
             self._connected = False
+            self.client = None
             return False
 
     def is_connected(self) -> bool:

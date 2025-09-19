@@ -66,3 +66,21 @@ Thumbs.db
 # ChromaDB data
 chroma_db/
 chromadb_data/
+
+# Docker and Infrastructure
+data/
+docker-compose.override.yml
+.claude/
+
+# Test Evidence Files (exclude from repository)
+*_test_result.json
+*_evidence_report.json
+*_complete_test_result.json
+test_*.py
+backend/test_venv/
+backend/*test*.py
+backend/fix_*.py
+backend/create_*.py
+
+# Virtual environment in backend
+backend/test_venv/
