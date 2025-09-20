@@ -1,0 +1,239 @@
+{
+  "start_time": "2025-09-20 20:46:16.186177",
+  "online_api_tests": {
+    "api_001": {
+      "success": true,
+      "response_time": 7.101935148239136,
+      "stock_code": "600549",
+      "data_sources": {
+        "redis": [],
+        "postgresql": [],
+        "akshare": [
+          "realtime",
+          "kline",
+          "basic_info",
+          "financial",
+          "announcements",
+          "shareholders",
+          "longhubang"
+        ]
+      },
+      "cache_info": {
+        "realtime": "fetched_cached",
+        "kline": "fetched_cached",
+        "basic_info": "fetched_cached",
+        "financial": "fetched_cached",
+        "announcements": "fetched_cached",
+        "shareholders": "fetched_cached",
+        "longhubang": "fetched_cached"
+      },
+      "data_types_count": 7
+    },
+    "database_storage": {
+      "stock_financial": 1,
+      "stock_announcements": 1,
+      "stock_shareholders": 1,
+      "stock_longhubang": 1
+    },
+    "redis_cache": {
+      "keys_count": 7,
+      "keys": [
+        "kline:600549:days:60",
+        "realtime:600549",
+        "basic_info:600549",
+        "announcements:600549",
+        "longhubang:600549",
+        "shareholders:600549",
+        "financial:600549"
+      ]
+    },
+    "api_002": {
+      "success": true,
+      "response_time": 0.006036996841430664,
+      "cache_info": {
+        "realtime": "hit",
+        "kline": "hit",
+        "basic_info": "hit"
+      }
+    },
+    "api_003": {
+      "success": true,
+      "message": "增强版Dashboard API - 三层架构",
+      "status": null,
+      "version": "2.0.0"
+    }
+  },
+  "batch_processing_tests": {
+    "batch_001": {
+      "success": true,
+      "watchlist_id": 13,
+      "stock_codes": [
+        "688660",
+        "600629",
+        "600619"
+      ],
+      "priority_level": 5
+    },
+    "batch_002": {
+      "success": true,
+      "processing_time": 2.5602996349334717,
+      "processed_stocks": null,
+      "successful_stocks": null,
+      "failed_stocks": null
+    },
+    "rag_001": {
+      "success": true,
+      "sync_time": 0.743138313293457,
+      "successful_syncs": 0,
+      "failed_syncs": 6,
+      "new_versions_created": 0
+    }
+  },
+  "data_consistency_tests": {
+    "data_001": {
+      "success": true,
+      "test_stock": "600549",
+      "data_types": {
+        "financial": {
+          "redis_status": "有数据",
+          "redis_size": 27524,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 12:46:19.361124",
+          "consistency_rate": 0.0
+        },
+        "announcements": {
+          "redis_status": "有数据",
+          "redis_size": 6055,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 12:46:19.855733",
+          "consistency_rate": 1.0
+        },
+        "shareholders": {
+          "redis_status": "有数据",
+          "redis_size": 1066,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 12:46:20.486794",
+          "consistency_rate": 1.0
+        }
+      }
+    },
+    "data_002": {
+      "success": true,
+      "coverage_data": {
+        "600549": {
+          "financial": "✓",
+          "announcements": "✓",
+          "shareholders": "✓",
+          "longhubang": "✓"
+        },
+        "688660": {
+          "financial": "✗",
+          "announcements": "✗",
+          "shareholders": "✗",
+          "longhubang": "✗"
+        },
+        "600629": {
+          "financial": "✗",
+          "announcements": "✗",
+          "shareholders": "✗",
+          "longhubang": "✗"
+        },
+        "600619": {
+          "financial": "✗",
+          "announcements": "✗",
+          "shareholders": "✗",
+          "longhubang": "✗"
+        }
+      },
+      "rag_versions_count": 0,
+      "rag_data": {}
+    }
+  },
+  "performance_tests": {
+    "perf_001": {
+      "success": true,
+      "cold_start_time": 0.0047566890716552734,
+      "hot_cache_time": 0.004270076751708984,
+      "avg_concurrent_time": 0.0034766197204589844,
+      "performance_grade": {
+        "cold_start": "优秀",
+        "hot_cache": "优秀"
+      }
+    }
+  },
+  "integration_tests": {
+    "e2e_001": {
+      "success": true,
+      "cold_start": {
+        "success": true,
+        "response_time": 1.0138776302337646,
+        "cache_info": {
+          "financial": "fetched_cached",
+          "announcements": "fetched_cached"
+        }
+      },
+      "batch_processing": {
+        "success": true,
+        "processing_time": 0.20623564720153809,
+        "result": {
+          "processed": 2,
+          "success": 2,
+          "failed": 0,
+          "skipped": 0,
+          "failed_items": [],
+          "cache_hits": 0,
+          "cache_misses": 2
+        }
+      },
+      "rag_sync": {
+        "success": true,
+        "sync_time": 0.34809374809265137,
+        "result": {
+          "total_stocks": 1,
+          "total_data_types": 2,
+          "processed_items": 2,
+          "successful_syncs": 1,
+          "failed_syncs": 1,
+          "skipped_syncs": 0,
+          "new_versions_created": 1,
+          "versions_activated": 1,
+          "failed_items": [
+            {
+              "stock_code": "688660",
+              "data_type": "financial",
+              "error": "无法获取结构化数据"
+            }
+          ],
+          "processing_time": 0.34792304039001465,
+          "start_time": "2025-09-20 20:46:29.875914",
+          "end_time": "2025-09-20 20:46:30.223837"
+        }
+      },
+      "hot_cache": {
+        "success": true,
+        "response_time": 0.0058612823486328125,
+        "cache_info": {
+          "financial": "hit",
+          "announcements": "hit"
+        }
+      }
+    }
+  },
+  "summary": {
+    "test_execution_time": 14.044707,
+    "total_tests": 10,
+    "passed_tests": 10,
+    "failed_tests": 0,
+    "success_rate": 100.0,
+    "test_stocks": {
+      "online": "600549",
+      "batch": [
+        "688660",
+        "600629",
+        "600619"
+      ]
+    },
+    "overall_status": "PASS"
+  },
+  "end_time": "2025-09-20 20:46:30.230884"
+}

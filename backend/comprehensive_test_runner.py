@@ -26,8 +26,8 @@ class ComprehensiveTestRunner:
     def __init__(self):
         self.api_base_url = "http://localhost:8081"
         self.test_stocks = {
-            "online": "601727",  # 上海电气
-            "batch": ["603993", "000630", "300085"]  # 洛阳钼业、铜陵有色、银之杰
+            "online": "600549",  # 厦门钨业
+            "batch": ["688660", "600629", "600619"]  # 深度学习、华建集团、海立股份
         }
 
         # 连接配置
