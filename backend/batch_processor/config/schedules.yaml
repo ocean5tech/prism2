@@ -1,0 +1,30 @@
+# 批处理调度配置
+schedules:
+  # 优先级批处理时间
+  priority_batches:
+    level_5: "00:30"  # 最高优先级 - 凌晨0:30
+    level_4: "01:00"  # 高优先级
+    level_3: "01:30"  # 中优先级
+    level_2: "02:00"  # 低优先级
+    level_1: "02:30"  # 最低优先级
+
+  # 维护任务调度
+  maintenance_tasks:
+    cache_cleanup: "02:00"        # 缓存清理
+    performance_report: "06:00"   # 性能报告生成
+    rag_optimization: "03:00"     # RAG优化
+    database_maintenance: "04:00" # 数据库维护
+
+  # 市场相关任务
+  market_tasks:
+    pre_market_warm: "09:15"              # 开盘前预热
+    intraday_update: "*/30 9-15 * * 1-5"  # 盘中更新 (每30分钟)
+    post_market_update: "15:30"           # 收盘后更新
+    weekend_full_scan: "10:00"            # 周末全面扫描
+
+# 调度器配置
+scheduler_config:
+  timezone: "Asia/Shanghai"
+  max_instances: 3
+  coalesce: true
+  misfire_grace_time: 300  # 5分钟

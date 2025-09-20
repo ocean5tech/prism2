@@ -1,0 +1,41 @@
+# Prism2 批处理系统依赖包
+
+# 调度框架
+apscheduler==3.10.4
+croniter==1.4.1
+
+# 数据处理
+pandas==2.1.3
+numpy==1.24.3
+akshare>=1.12.0
+
+# 向量化处理
+sentence-transformers==2.2.2
+chromadb==0.4.15
+jieba==0.42.1
+
+# 数据库
+psycopg2-binary==2.9.9
+redis==5.0.1
+sqlalchemy==2.0.23
+
+# Web框架扩展
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+
+# 工具库
+pyyaml==6.0.1
+python-multipart==0.0.6
+httpx==0.25.2
+
+# 监控和日志
+structlog==23.2.0
+
+# 测试框架
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# 已有依赖 (确保兼容性)
+python-dateutil>=2.8.0
+typing-extensions>=4.0.0

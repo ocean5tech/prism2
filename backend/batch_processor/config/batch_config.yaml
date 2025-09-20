@@ -1,0 +1,103 @@
+# 批处理系统配置
+batch_settings:
+  # 并发控制
+  max_concurrent_jobs: 5
+  max_stocks_per_batch: 20
+  default_timeout: 300
+  retry_attempts: 3
+  backoff_factor: 2.0
+
+  # 性能设置
+  batch_size_limit: 100
+  memory_limit_mb: 1024
+  cpu_threshold: 80
+
+  # 缓存设置
+  cache_warm_up: true
+  cache_ttl_override: false
+  cache_batch_size: 50
+
+# RAG集成配置
+rag_settings:
+  enabled: true
+  embedding_model: "bge-large-zh-v1.5"
+  chunk_size: 512
+  chunk_overlap: 50
+  max_chunks_per_document: 100
+  similarity_threshold: 0.7
+
+  # 版本管理
+  version_retention_days: 30
+  auto_deprecate_old_versions: true
+  max_versions_per_stock: 5
+
+  # 同步设置
+  auto_sync: true
+  sync_batch_size: 10
+  sync_delay_seconds: 2
+
+# 数据源配置
+data_sources:
+  akshare:
+    enabled: true
+    timeout: 30
+    retry_count: 3
+    rate_limit_delay: 1.0
+
+  redis:
+    host: "localhost"
+    port: 6379
+    db: 1  # 使用不同数据库避免冲突
+
+  postgresql:
+    host: "localhost"
+    port: 5432
+    database: "prism2"
+    user: "prism2"
+    password: "prism2_secure_password"
+
+  chromadb:
+    host: "localhost"
+    port: 8000
+    collection_prefix: "prism2_batch"
+
+# 监控配置
+monitoring:
+  enabled: true
+  metrics_retention_days: 90
+  performance_tracking: true
+  error_alerting: true
+
+  # 日志配置
+  log_level: "INFO"
+  log_file: "logs/batch_processor.log"
+  log_rotation: "daily"
+  log_retention_days: 30
+
+# 股票池配置
+stock_pools:
+  # 热门股票 (最高优先级)
+  hot_stocks:
+    - "000001"  # 平安银行
+    - "600519"  # 贵州茅台
+    - "000002"  # 万科A
+    - "600036"  # 招商银行
+    - "000858"  # 五粮液
+
+  # 科创板样本
+  star_market:
+    - "688001"
+    - "688469"
+    - "688111"
+
+  # 创业板样本
+  chinext:
+    - "300059"
+    - "300750"
+    - "300760"
+
+  # 测试股票池
+  test_stocks:
+    - "600919"  # 江苏银行 (已有测试数据)
+    - "688469"  # 已测试通过
+    - "000001"  # 基准测试

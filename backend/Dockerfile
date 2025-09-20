@@ -1,0 +1,21 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# â≈˚ﬂùV
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# 6requirementsáˆvâ≈PythonùV
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 6î(„
+COPY app/ ./app/
+
+# ¥2Ô„
+EXPOSE 8000
+
+# /®}‰
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
