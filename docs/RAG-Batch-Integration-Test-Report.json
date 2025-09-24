@@ -1,0 +1,48 @@
+{
+  "test_info": {
+    "test_time": "2025-09-24T08:23:43.603876",
+    "test_stocks": [
+      "002384",
+      "002617",
+      "002371"
+    ],
+    "test_data_types": [
+      "financial",
+      "announcements",
+      "shareholders",
+      "longhubang"
+    ]
+  },
+  "test_results": {
+    "version_manager": {
+      "success": true,
+      "duration": 0.13524198532104492,
+      "details": "版本管理器测试通过，创建版本: bc41af96-d47f-4b65-9d93-75283d41e048"
+    },
+    "data_vectorizer": {
+      "success": true,
+      "duration": 0.00030875205993652344,
+      "details": "数据向量化器测试通过，所有数据类型转换成功"
+    },
+    "rag_sync_processor": {
+      "success": true,
+      "duration": 0.40433502197265625,
+      "details": "RAG同步处理器测试通过，单个和批量同步正常"
+    },
+    "end_to_end_workflow": {
+      "success": true,
+      "duration": 0.08551907539367676,
+      "details": "端到端工作流程测试通过，完整数据处理链路正常"
+    },
+    "version_lifecycle": {
+      "success": false,
+      "duration": 0.14788460731506348,
+      "details": "版本生命周期测试通过，版本切换和状态管理正常"
+    }
+  },
+  "summary": {
+    "total_tests": 5,
+    "passed_tests": 4,
+    "failed_tests": 1
+  }
+}
