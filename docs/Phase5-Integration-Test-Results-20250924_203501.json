@@ -1,0 +1,102 @@
+{
+  "test_time": "2025-09-24 20:34:56",
+  "tests": {
+    "Enhanced Dashboard API": {
+      "success": true,
+      "details": "API响应正常，架构: Redis → PostgreSQL → AKShare",
+      "duration": 0.005158901214599609,
+      "status": "✅ PASS",
+      "evidence": "HTTP 200, 响应时间: 0.005s"
+    },
+    "ChromaDB RAG系统": {
+      "success": true,
+      "details": "RAG系统心跳正常",
+      "duration": 0.007851362228393555,
+      "status": "✅ PASS",
+      "evidence": "HTTP 200, 响应时间: 0.008s"
+    },
+    "Ollama LLM服务": {
+      "success": true,
+      "details": "版本: 0.12.1",
+      "duration": 0.0063936710357666016,
+      "status": "✅ PASS",
+      "evidence": "HTTP 200, 响应时间: 0.006s"
+    },
+    "Open WebUI界面": {
+      "success": true,
+      "details": "Web界面可访问",
+      "duration": 0.007616758346557617,
+      "status": "✅ PASS",
+      "evidence": "HTTP 200, 响应时间: 0.008s"
+    },
+    "股票基础信息工具(000546)": {
+      "success": false,
+      "details": "基础信息获取异常",
+      "duration": 0.5139224529266357,
+      "status": "❌ FAIL",
+      "evidence": "❌ 无法获取000546的基础信息: API请求失败: HTTP 503..."
+    },
+    "股票价格工具(000546)": {
+      "success": false,
+      "details": "价格信息获取异常",
+      "duration": 0.5131485462188721,
+      "status": "❌ FAIL",
+      "evidence": "❌ 无法获取000546的价格信息: API请求失败: HTTP 503..."
+    },
+    "股票财务工具(000546)": {
+      "success": false,
+      "details": "财务信息获取异常",
+      "duration": 0.5190682411193848,
+      "status": "❌ FAIL",
+      "evidence": "❌ 无法获取000546的财务信息: API请求失败: HTTP 503..."
+    },
+    "综合分析工具(000546)": {
+      "success": true,
+      "details": "成功生成综合分析",
+      "duration": 1.5660960674285889,
+      "status": "✅ PASS",
+      "evidence": "报告长度: 204字符"
+    },
+    "系统状态检查工具": {
+      "success": true,
+      "details": "系统状态检查完成，0个组件正常",
+      "duration": 1.0498473644256592,
+      "status": "✅ PASS",
+      "evidence": "状态报告长度: 442字符"
+    },
+    "API数据权威性验证": {
+      "success": true,
+      "details": "API返回格式符合规范: success=True",
+      "duration": 0,
+      "status": "✅ PASS",
+      "evidence": "timestamp: 2025-09-24T20:35:00.325761, sources: ['redis', 'postgresql', 'akshare']"
+    },
+    "API数据内容验证": {
+      "success": true,
+      "details": "API返回了3个数据类型",
+      "duration": 0,
+      "status": "✅ PASS",
+      "evidence": "数据类型: ['basic', 'kline', 'financial']"
+    },
+    "Redis缓存性能测试": {
+      "success": true,
+      "details": "性能提升: 1.39x",
+      "duration": 0.011444091796875,
+      "status": "✅ PASS",
+      "evidence": "第1次: 0.016s, 第2次: 0.011s"
+    },
+    "Redis缓存命中验证": {
+      "success": false,
+      "details": "缓存命中情况改善",
+      "duration": 0,
+      "status": "❌ FAIL",
+      "evidence": "第1次Redis源: 0, 第2次: 0"
+    }
+  },
+  "summary": {
+    "total_tests": 13,
+    "passed_tests": 9,
+    "failed_tests": 4,
+    "success_rate": 69.23076923076923
+  }
+}

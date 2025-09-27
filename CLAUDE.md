@@ -6,15 +6,69 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Prism2 is a comprehensive stock analysis platform built with a modern microservices architecture. The project integrates RAG-enhanced AI analysis, real-time data processing, and professional financial visualizations.
 
+## 📋 操作记忆系统
+
+**🚨 重要**: 在开始任何工作前，MUST READ `/home/wyatt/prism2/CLAUDE_OPERATIONS.md`
+
+这个文件包含：
+- 服务启动的标准方法 (Podman, 端口, 虚拟环境)
+- 系统架构的准确记忆 (真实组件 vs 测试工具)
+- 功能验证的正确流程 (批处理, API, 数据库)
+- 开发原则和禁止行为清单
+
+**更新规则**: 每当发现新的操作方法、遇到问题、或找到更好的解决方案时，必须更新 `CLAUDE_OPERATIONS.md`，确保知识积累和传承。
+
 ## Project Structure
 
 This project contains implemented RAG core functionality with comprehensive documentation:
+
+### 📁 Documentation Organization
+
+**🚨 MANDATORY RULE**: All project documentation MUST be stored in `/home/wyatt/prism2/docs/`
+
+**FORBIDDEN**: Creating documentation files in `/home/wyatt/prism2/backend/docs/` or any other location outside the unified docs directory.
+
+#### **Unified Documentation Structure**:
+```
+/home/wyatt/prism2/docs/
+├── architecture-design.md          # Technical architecture document
+├── external-design.md              # External interface specifications
+├── 基础设施.md                      # Infrastructure requirements and setup
+├── LessonsLearned.md               # Critical troubleshooting guide
+├── 基础设施.log                    # Infrastructure installation log
+├── internal-design/                # Internal design documentation
+│   ├── rag-service.md
+│   ├── frontend-module.md
+│   └── ...
+├── st-testing/                     # System Testing documents
+│   ├── manual-test-report-template.md
+│   ├── manual-test-report.json
+│   ├── comprehensive-system-test-plan.md
+│   ├── comprehensive_system_test.py
+│   └── testing-standards.md
+└── [other-category]/               # Other document categories as needed
+```
+
+#### **Documentation Categories**:
+- **Root Level**: Core architecture and design documents
+- **internal-design/**: Detailed implementation specifications for each module
+- **st-testing/**: System Testing documentation, reports, and test scripts
+- **[module-category]/**: Future categories organized by functional area
+
+#### **File Creation Rules**:
+- ✅ **ALWAYS** create documents in `/home/wyatt/prism2/docs/` or its subdirectories
+- ✅ **USE** subdirectories to organize by category (st-testing, internal-design, etc.)
+- ❌ **NEVER** create documents in `/home/wyatt/prism2/backend/docs/`
+- ❌ **NEVER** scatter documentation across multiple root directories
+
+#### **Key Documents**:
 - `/docs/architecture-design.md` - Comprehensive technical architecture document
 - `/docs/external-design.md` - External interface design specifications
 - `/docs/基础设施.md` - Infrastructure requirements and setup guide
 - `/docs/internal-design/rag-service.md` - Internal design documentation for RAG service
 - `/docs/LessonsLearned.md` - **⚠️ MUST READ** - Critical lessons learned and troubleshooting guide
 - `/docs/基础设施.log` - Infrastructure installation log with detailed progress
+- `/docs/st-testing/` - **ST (System Testing)** documentation directory
 - `README.md` - Setup instructions for VS Code integration with WSL
 - `open-vscode.sh` - Script to launch VS Code from WSL environment
 
@@ -31,7 +85,53 @@ This project contains implemented RAG core functionality with comprehensive docu
 
 ## Development Environment
 
-This project is designed to run in a WSL (Windows Subsystem for Linux) environment with VS Code integration. The architecture calls for Docker Compose orchestration with multiple microservices.
+This project is designed to run in a WSL (Windows Subsystem for Linux) environment with VS Code integration. The architecture calls for Podman Compose orchestration with multiple microservices.
+
+### ⚠️ CRITICAL: Container Runtime
+**This project uses PODMAN, not Docker**. All container commands should use:
+- `podman` instead of `docker`
+- `podman-compose` instead of `docker-compose`
+- Container management via Podman's rootless containers
+
+### 🚨 ABSOLUTE RULE: Interface Immutability
+**INTERFACES ARE ABSOLUTELY FORBIDDEN TO BE CHANGED**. This is a non-negotiable principle:
+
+#### **Port Assignments (STRICTLY FIXED)**
+- **Backend API**: Port 8000 (NEVER 8081 or any other port)
+- **RAG Service**: Port 8001
+- **Push Service**: Port 8002
+- **Frontend**: Port 3000
+- **PostgreSQL**: Port 5432
+- **Redis**: Port 6379
+- **AI Service (Ollama)**: Port 11434
+
+#### **API Endpoints (IMMUTABLE)**
+All API endpoints defined in `/docs/01-固定接口规范.md` are **LOCKED** and cannot be modified:
+- `GET /api/v1/stocks/search`
+- `GET /api/v1/stocks/{code}/info`
+- `GET /api/v1/stocks/{code}/realtime`
+- `POST /api/v1/stocks/dashboard`
+
+#### **Violation Consequences**
+- Any interface change is considered a **CRITICAL ERROR**
+- Must find and fix the root cause, never create new interfaces
+- Must restore original working interfaces exactly as specified
+- No temporary workarounds using different ports/endpoints
+
+#### **🚨 HISTORICAL VIOLATION RECORD**
+- **Previous Error**: Claude previously changed Backend API port from 8000 to 8081 without permission
+- **Current Status**: Backend API runs on 8081 port (as per Phase2-Final-Test-Report.md)
+- **Absolute Rule**: **NEVER change any port or interface without explicit user permission**
+
+#### **🔒 MANDATORY APPROVAL PROCESS**
+Before any interface/port change:
+1. **Must get explicit user permission**
+2. **Must document the reason for change**
+3. **Must update all related documentation**
+4. **Must run comprehensive tests to verify functionality**
+5. **Must get user approval for test results**
+
+**NO EXCEPTIONS - This rule is ABSOLUTE and NON-NEGOTIABLE**
 
 ## Planned Architecture
 
@@ -80,7 +180,7 @@ The system is designed with these key components:
 - **AI/ML**: Ollama, LangChain, bge-large-zh-v1.5
 
 ### Infrastructure
-- **Containerization**: Docker + Docker Compose
+- **Containerization**: Podman + Podman Compose
 - **Message Queue**: Apache Kafka
 - **Big Data**: Apache Spark (for learning purposes)
 - **Caching**: Redis 7
@@ -90,16 +190,16 @@ The system is designed with these key components:
 
 Since this is an early-stage project, specific build/test commands are not yet established. Based on the architecture:
 
-### Expected Docker Commands
+### Expected Podman Commands
 ```bash
 # Start all services
-docker-compose up -d
+podman-compose up -d
 
 # View logs
-docker-compose logs -f [service-name]
+podman-compose logs -f [service-name]
 
 # Stop services
-docker-compose down
+podman-compose down
 ```
 
 ### Expected Frontend Commands (when implemented)

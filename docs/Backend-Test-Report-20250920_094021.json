@@ -1,0 +1,148 @@
+{
+  "start_time": "2025-09-20 09:40:13.795194",
+  "online_api_tests": {
+    "api_001": {
+      "success": true,
+      "response_time": 4.459033012390137,
+      "stock_code": "601727",
+      "data_sources": {
+        "redis": [],
+        "postgresql": [],
+        "akshare": [
+          "realtime",
+          "kline",
+          "basic_info",
+          "financial",
+          "announcements",
+          "shareholders",
+          "longhubang"
+        ]
+      },
+      "cache_info": {
+        "realtime": "fetched_cached",
+        "kline": "fetched_cached",
+        "basic_info": "fetched_cached",
+        "financial": "fetched_cached",
+        "announcements": "fetched_cached",
+        "shareholders": "fetched_cached",
+        "longhubang": "fetched_cached"
+      },
+      "data_types_count": 7
+    },
+    "database_storage": {
+      "error": "0"
+    },
+    "redis_cache": {
+      "keys_count": 7,
+      "keys": [
+        "realtime:601727",
+        "financial:601727",
+        "longhubang:601727",
+        "kline:601727:days:60",
+        "announcements:601727",
+        "basic_info:601727",
+        "shareholders:601727"
+      ]
+    },
+    "api_002": {
+      "success": true,
+      "response_time": 0.005609035491943359,
+      "cache_info": {
+        "realtime": "hit",
+        "kline": "hit",
+        "basic_info": "hit"
+      }
+    },
+    "api_003": {
+      "success": true,
+      "message": "增强版Dashboard API - 三层架构",
+      "status": null,
+      "version": "2.0.0"
+    }
+  },
+  "batch_processing_tests": {
+    "batch_001": {
+      "success": false,
+      "error": "用户 test_user_comprehensive 已存在名为 '综合测试股票池' 的自选股列表"
+    },
+    "batch_002": {
+      "success": false,
+      "error": "'WatchlistProcessor' object has no attribute 'get_priority_watchlists'"
+    },
+    "rag_001": {
+      "success": true,
+      "sync_time": 0.7705104351043701,
+      "successful_syncs": 0,
+      "failed_syncs": 6,
+      "new_versions_created": 0
+    }
+  },
+  "data_consistency_tests": {
+    "data_001": {
+      "success": true,
+      "test_stock": "601727",
+      "data_types": {
+        "financial": {
+          "redis_status": "有数据",
+          "redis_size": 27422,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 01:40:15.733013",
+          "consistency_rate": 0.0
+        },
+        "announcements": {
+          "redis_status": "有数据",
+          "redis_size": 2310,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 01:40:16.131163",
+          "consistency_rate": 1.0
+        },
+        "shareholders": {
+          "redis_status": "有数据",
+          "redis_size": 258,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 01:40:16.455389",
+          "consistency_rate": 1.0
+        }
+      }
+    },
+    "data_002": {
+      "success": false,
+      "error": "0"
+    }
+  },
+  "performance_tests": {
+    "perf_001": {
+      "success": true,
+      "cold_start_time": 0.005280971527099609,
+      "hot_cache_time": 0.004652500152587891,
+      "avg_concurrent_time": 0.005447228749593099,
+      "performance_grade": {
+        "cold_start": "优秀",
+        "hot_cache": "优秀"
+      }
+    }
+  },
+  "integration_tests": {
+    "e2e_001": {
+      "success": false,
+      "error": "'WatchlistProcessor' object has no attribute 'process_stock_batch'"
+    }
+  },
+  "summary": {
+    "test_execution_time": 7.33775,
+    "total_tests": 12,
+    "passed_tests": 6,
+    "failed_tests": 6,
+    "success_rate": 50.0,
+    "test_stocks": {
+      "online": "601727",
+      "batch": [
+        "603993",
+        "000630",
+        "300085"
+      ]
+    },
+    "overall_status": "FAIL"
+  },
+  "end_time": "2025-09-20 09:40:21.132944"
+}

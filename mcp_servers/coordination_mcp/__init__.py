@@ -1,0 +1,1 @@
+# Task Coordination MCP server module

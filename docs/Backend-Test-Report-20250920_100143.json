@@ -1,0 +1,207 @@
+{
+  "start_time": "2025-09-20 10:01:40.041447",
+  "online_api_tests": {
+    "api_001": {
+      "success": true,
+      "response_time": 0.7793095111846924,
+      "stock_code": "601727",
+      "data_sources": {
+        "redis": [],
+        "postgresql": [
+          "financial",
+          "announcements",
+          "shareholders",
+          "longhubang"
+        ],
+        "akshare": [
+          "realtime",
+          "kline",
+          "basic_info"
+        ]
+      },
+      "cache_info": {
+        "realtime": "fetched_cached",
+        "kline": "fetched_cached",
+        "basic_info": "fetched_cached",
+        "financial": "miss_cached",
+        "announcements": "miss_cached",
+        "shareholders": "miss_cached",
+        "longhubang": "miss_cached"
+      },
+      "data_types_count": 7
+    },
+    "database_storage": {
+      "error": "0"
+    },
+    "redis_cache": {
+      "keys_count": 7,
+      "keys": [
+        "realtime:601727",
+        "financial:601727",
+        "longhubang:601727",
+        "kline:601727:days:60",
+        "announcements:601727",
+        "basic_info:601727",
+        "shareholders:601727"
+      ]
+    },
+    "api_002": {
+      "success": true,
+      "response_time": 0.004810333251953125,
+      "cache_info": {
+        "realtime": "hit",
+        "kline": "hit",
+        "basic_info": "hit"
+      }
+    },
+    "api_003": {
+      "success": true,
+      "message": "增强版Dashboard API - 三层架构",
+      "status": null,
+      "version": "2.0.0"
+    }
+  },
+  "batch_processing_tests": {
+    "batch_001": {
+      "success": true,
+      "watchlist_id": 9,
+      "stock_codes": [
+        "603993",
+        "000630",
+        "300085"
+      ],
+      "priority_level": 5
+    },
+    "batch_002": {
+      "success": false,
+      "error": "'WatchlistResponse' object is not subscriptable"
+    },
+    "rag_001": {
+      "success": true,
+      "sync_time": 0.8358547687530518,
+      "successful_syncs": 1,
+      "failed_syncs": 5,
+      "new_versions_created": 1
+    }
+  },
+  "data_consistency_tests": {
+    "data_001": {
+      "success": true,
+      "test_stock": "601727",
+      "data_types": {
+        "financial": {
+          "redis_status": "有数据",
+          "redis_size": 27528,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 01:40:15.733013",
+          "consistency_rate": 0.5
+        },
+        "announcements": {
+          "redis_status": "有数据",
+          "redis_size": 2514,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 01:40:16.131163",
+          "consistency_rate": 0.5
+        },
+        "shareholders": {
+          "redis_status": "有数据",
+          "redis_size": 469,
+          "postgresql_status": "有数据",
+          "postgresql_update_time": "2025-09-20 01:40:16.455389",
+          "consistency_rate": 0.5
+        }
+      }
+    },
+    "data_002": {
+      "success": false,
+      "error": "数据库连接或查询失败"
+    }
+  },
+  "performance_tests": {
+    "perf_001": {
+      "success": true,
+      "cold_start_time": 0.00487065315246582,
+      "hot_cache_time": 0.004105806350708008,
+      "avg_concurrent_time": 0.005179882049560547,
+      "performance_grade": {
+        "cold_start": "优秀",
+        "hot_cache": "优秀"
+      }
+    }
+  },
+  "integration_tests": {
+    "e2e_001": {
+      "success": false,
+      "cold_start": {
+        "success": true,
+        "response_time": 0.052272796630859375,
+        "cache_info": {
+          "financial": "miss_cached",
+          "announcements": "miss_cached"
+        }
+      },
+      "batch_processing": {
+        "success": false,
+        "processing_time": 0.21840667724609375,
+        "result": {
+          "processed": 2,
+          "success": 2,
+          "failed": 0,
+          "skipped": 0,
+          "failed_items": [],
+          "cache_hits": 0,
+          "cache_misses": 2
+        }
+      },
+      "rag_sync": {
+        "success": true,
+        "sync_time": 0.36652350425720215,
+        "result": {
+          "total_stocks": 1,
+          "total_data_types": 2,
+          "processed_items": 2,
+          "successful_syncs": 1,
+          "failed_syncs": 1,
+          "skipped_syncs": 0,
+          "new_versions_created": 1,
+          "versions_activated": 1,
+          "failed_items": [
+            {
+              "stock_code": "603993",
+              "data_type": "financial",
+              "error": "无法获取结构化数据"
+            }
+          ],
+          "processing_time": 0.3663620948791504,
+          "start_time": "2025-09-20 10:01:43.264869",
+          "end_time": "2025-09-20 10:01:43.631233"
+        }
+      },
+      "hot_cache": {
+        "success": true,
+        "response_time": 0.006844043731689453,
+        "cache_info": {
+          "financial": "hit",
+          "announcements": "hit"
+        }
+      }
+    }
+  },
+  "summary": {
+    "test_execution_time": 3.597862,
+    "total_tests": 12,
+    "passed_tests": 7,
+    "failed_tests": 5,
+    "success_rate": 58.333333333333336,
+    "test_stocks": {
+      "online": "601727",
+      "batch": [
+        "603993",
+        "000630",
+        "300085"
+      ]
+    },
+    "overall_status": "FAIL"
+  },
+  "end_time": "2025-09-20 10:01:43.639309"
+}

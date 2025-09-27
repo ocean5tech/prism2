@@ -1,0 +1,64 @@
+# RAG Service 正确Docker化方案
+# 使用现有共享基础设施，不重复部署数据库
+FROM python:3.12-slim
+
+# 设置工作目录
+WORKDIR /app
+
+# 安装系统依赖
+RUN apt-get update && apt-get install -y \
+    curl \
+    netcat-traditional \
+    && rm -rf /var/lib/apt/lists/*
+
+# 创建完整依赖列表（基于设计文档中的技术栈）
+RUN echo "fastapi==0.104.1" > requirements-full.txt && \
+    echo "uvicorn==0.24.0" >> requirements-full.txt && \
+    echo "chromadb==0.4.18" >> requirements-full.txt && \
+    echo "sentence-transformers==2.2.2" >> requirements-full.txt && \
+    echo "torch==2.1.0+cpu" >> requirements-full.txt && \
+    echo "transformers==4.35.2" >> requirements-full.txt && \
+    echo "pydantic==2.5.0" >> requirements-full.txt && \
+    echo "python-multipart==0.0.6" >> requirements-full.txt && \
+    echo "python-dotenv==1.0.0" >> requirements-full.txt && \
+    echo "aiofiles==23.2.0" >> requirements-full.txt && \
+    echo "httpx==0.25.2" >> requirements-full.txt && \
+    echo "numpy==1.24.3" >> requirements-full.txt && \
+    echo "aiohttp" >> requirements-full.txt && \
+    echo "feedparser" >> requirements-full.txt && \
+    echo "beautifulsoup4" >> requirements-full.txt && \
+    echo "langdetect" >> requirements-full.txt && \
+    echo "Pillow" >> requirements-full.txt && \
+    echo "redis==5.0.1" >> requirements-full.txt
+
+# 安装Python依赖（使用CPU版本的PyTorch）
+RUN pip install --no-cache-dir torch==2.1.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html && \
+    pip install --no-cache-dir -r requirements-full.txt
+
+# 复制应用代码
+COPY . .
+
+# 创建必要目录
+RUN mkdir -p logs rss_data data
+
+# 设置环境变量（连接现有共享基础设施）
+ENV PYTHONPATH=/app
+ENV RAG_ENV=production
+ENV CHROMADB_HOST=host.docker.internal
+ENV CHROMADB_PORT=8000
+ENV REDIS_HOST=host.docker.internal
+ENV REDIS_PORT=6379
+
+# 暴露端口
+EXPOSE 8001
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+  CMD curl -f http://localhost:8001/api/health || exit 1
+
+# 启动脚本
+COPY docker-entrypoint-corrected.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8001"]

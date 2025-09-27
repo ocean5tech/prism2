@@ -58,7 +58,7 @@ data_sources:
 
   chromadb:
     host: "localhost"
-    port: 8000
+    port: 8003
     collection_prefix: "prism2_batch"
 
 # 监控配置

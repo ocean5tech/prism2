@@ -1,0 +1,212 @@
+{
+  "test_metadata": {
+    "test_type": "MANUAL_STEP_BY_STEP_TEST",
+    "principle": "100%真实数据，分步执行，实时监控",
+    "report_created": "PLACEHOLDER_START_TIME",
+    "executor": "Claude Code",
+    "supervisor": "User",
+    "report_file_path": "/home/wyatt/prism2/docs/st-testing/manual-test-report-template.md",
+    "json_file_path": "/home/wyatt/prism2/docs/st-testing/manual-test-report.json"
+  },
+  "test_progress": {
+    "total_test_cases": 47,
+    "executed_cases": 0,
+    "pending_cases": 47,
+    "current_phase": "WAITING_FOR_COMMANDS",
+    "current_status": "READY_FOR_INSTRUCTIONS"
+  },
+  "available_commands": {
+    "phase_1": [
+      "测试 Phase1-数据库基线",
+      "测试 Phase1-Redis基线",
+      "测试 Phase1-ChromaDB基线",
+      "测试 Phase1-服务状态",
+      "测试 Phase1-全部"
+    ],
+    "phase_2_api": [
+      "测试 A1-股票搜索",
+      "测试 A2-基础信息",
+      "测试 A3-K线数据",
+      "测试 A4-财务数据",
+      "测试 A5-公告数据",
+      "测试 A6-股东数据",
+      "测试 A7-新闻数据",
+      "测试 A8-批量处理",
+      "测试 Suite-A全部"
+    ],
+    "phase_3_architecture": [
+      "测试 C1-冷启动",
+      "测试 C2-缓存命中",
+      "测试 C3-数据库降级",
+      "测试 C4-AKShare降级",
+      "测试 Suite-C全部"
+    ],
+    "phase_4_rag": [
+      "测试 B1-文档向量化",
+      "测试 B2-语义查询",
+      "测试 B3-集合列表",
+      "测试 B4-集合统计",
+      "测试 D1-向量化流水线",
+      "测试 D2-多类型向量化",
+      "测试 D3-语义检索",
+      "测试 D4-跨股票检索",
+      "测试 D5-增量更新",
+      "测试 Suite-RAG全部"
+    ],
+    "phase_5_batch": [
+      "测试 E1-RSS监控",
+      "测试 E2-自选股优先",
+      "测试 E3-定时同步",
+      "测试 E4-任务调度",
+      "测试 Suite-E全部"
+    ],
+    "phase_6_logging": [
+      "测试 F1-API日志",
+      "测试 F2-AKShare日志",
+      "测试 F3-批处理日志",
+      "测试 F4-RAG日志",
+      "测试 F5-异常日志",
+      "测试 Suite-F全部"
+    ],
+    "special_commands": [
+      "测试 全部",
+      "查看 数据变化",
+      "查看 性能指标",
+      "生成 最终报告"
+    ]
+  },
+  "baseline_data": {
+    "postgresql": {
+      "status": "pending_check",
+      "tables": {
+        "stock_basic_info": {"count": null, "status": "pending"},
+        "stock_kline_daily": {"count": null, "status": "pending"},
+        "stock_financial": {"count": null, "status": "pending"},
+        "stock_announcements": {"count": null, "status": "pending"},
+        "stock_shareholders": {"count": null, "status": "pending"},
+        "stock_longhubang": {"count": null, "status": "pending"},
+        "stock_news": {"count": null, "status": "pending"},
+        "stock_realtime": {"count": null, "status": "pending"},
+        "stock_ai_analysis": {"count": null, "status": "pending"}
+      }
+    },
+    "redis": {
+      "status": "pending_check",
+      "cache_types": {
+        "total_keys": {"count": null, "status": "pending"},
+        "basic_info": {"count": null, "status": "pending"},
+        "kline": {"count": null, "status": "pending"},
+        "financial": {"count": null, "status": "pending"},
+        "announcements": {"count": null, "status": "pending"},
+        "shareholders": {"count": null, "status": "pending"},
+        "news": {"count": null, "status": "pending"}
+      }
+    },
+    "chromadb": {
+      "status": "pending_check",
+      "collections": {}
+    },
+    "services": {
+      "postgresql": {"status": "running", "port": 5432, "uptime": "19 hours"},
+      "redis": {"status": "running", "port": 6379, "uptime": "19 hours"},
+      "chromadb": {"status": "running", "port": 8003, "uptime": "17 hours", "note": "migrated from port 8000"},
+      "nginx": {"status": "running", "port": 9080, "health_check": "OK"},
+      "batch_scheduler": {"status": "running", "environment": "test_venv", "last_execution": "600919 stock processing"},
+      "rss_monitor": {"status": "running", "dependencies": "feedparser, langdetect", "last_collection": "9 Financial Times articles"}
+    }
+  },
+  "test_results": {
+    "phase_1_baseline": {
+      "status": "pending",
+      "executed_tests": [],
+      "results": {}
+    },
+    "phase_2_api": {
+      "status": "pending",
+      "suite_a_stock_api": {
+        "A1_stock_search": {"status": "pending"},
+        "A2_basic_info": {"status": "pending"},
+        "A3_kline_data": {"status": "pending"},
+        "A4_financial_data": {"status": "pending"},
+        "A5_announcements": {"status": "pending"},
+        "A6_shareholders": {"status": "pending"},
+        "A7_news_data": {"status": "pending"},
+        "A8_batch_processing": {"status": "pending"}
+      },
+      "suite_b_rag_api": {
+        "B1_document_vectorization": {"status": "pending"},
+        "B2_semantic_query": {"status": "pending"},
+        "B3_collections_list": {"status": "pending"},
+        "B4_collection_stats": {"status": "pending"}
+      }
+    },
+    "phase_3_architecture": {
+      "status": "pending",
+      "suite_c_three_tier": {
+        "C1_cold_start": {"status": "pending"},
+        "C2_cache_hit": {"status": "pending"},
+        "C3_database_fallback": {"status": "pending"},
+        "C4_akshare_fallback": {"status": "pending"}
+      }
+    },
+    "phase_4_rag": {
+      "status": "pending",
+      "suite_d_rag_pipeline": {
+        "D1_vectorization_pipeline": {"status": "pending"},
+        "D2_multi_type_vectorization": {"status": "pending"},
+        "D3_semantic_search_accuracy": {"status": "pending"},
+        "D4_cross_stock_search": {"status": "pending"},
+        "D5_incremental_update": {"status": "pending"}
+      }
+    },
+    "phase_5_batch": {
+      "status": "pending",
+      "suite_e_batch_processing": {
+        "E1_rss_monitoring": {"status": "pending"},
+        "E2_priority_processing": {"status": "pending"},
+        "E3_scheduled_sync": {"status": "pending"},
+        "E4_task_scheduling": {"status": "pending"}
+      }
+    },
+    "phase_6_logging": {
+      "status": "pending",
+      "suite_f_logging": {
+        "F1_api_logging": {"status": "pending"},
+        "F2_akshare_logging": {"status": "pending"},
+        "F3_batch_logging": {"status": "pending"},
+        "F4_rag_logging": {"status": "pending"},
+        "F5_exception_logging": {"status": "pending"}
+      }
+    }
+  },
+  "data_changes": {
+    "postgresql_changes": {},
+    "redis_changes": {},
+    "chromadb_changes": {}
+  },
+  "performance_metrics": {
+    "api_response_times": {},
+    "data_throughput": {},
+    "resource_usage": {}
+  },
+  "errors_and_exceptions": {
+    "discovered_issues": [],
+    "exception_handling": {}
+  },
+  "execution_log": [
+    {
+      "timestamp": "PLACEHOLDER_START_TIME",
+      "action": "report_template_created",
+      "message": "测试报告模板创建完成，等待用户指令开始测试"
+    }
+  ],
+  "test_summary": {
+    "total_executed": 0,
+    "total_passed": 0,
+    "total_failed": 0,
+    "total_skipped": 0,
+    "overall_success_rate": 0,
+    "key_findings": [],
+    "improvement_recommendations": []
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "test_suite": "Comprehensive Logging System Test",
+  "start_time": "2025-09-23T09:55:06.585576",
+  "end_time": null,
+  "total_tests": 23,
+  "passed_tests": 20,
+  "failed_tests": 3,
+  "test_cases": [
+    {
+      "name": "cleanup_old_logs",
+      "passed": true,
+      "message": "成功清理旧日志文件",
+      "timestamp": "2025-09-23T09:55:06.586071"
+    },
+    {
+      "name": "service_check_postgresql",
+      "passed": false,
+      "message": "PostgreSQL 状态: ",
+      "timestamp": "2025-09-23T09:55:06.614122"
+    },
+    {
+      "name": "service_check_redis",
+      "passed": false,
+      "message": "Redis 状态: ",
+      "timestamp": "2025-09-23T09:55:06.620020"
+    },
+    {
+      "name": "prepare_test_data",
+      "passed": true,
+      "message": "测试数据准备成功",
+      "timestamp": "2025-09-23T09:55:06.620036"
+    },
+    {
+      "name": "A1_stock_search_api",
+      "passed": true,
+      "message": "API调用测试成功，耗时: 0.39ms",
+      "timestamp": "2025-09-23T09:55:06.620435"
+    },
+    {
+      "name": "A2_stock_detail_api",
+      "passed": true,
+      "message": "API调用测试成功，耗时: 0.06ms",
+      "timestamp": "2025-09-23T09:55:06.620498"
+    },
+    {
+      "name": "A3_batch_stocks_api",
+      "passed": true,
+      "message": "API调用测试成功，耗时: 0.04ms",
+      "timestamp": "2025-09-23T09:55:06.620547"
+    },
+    {
+      "name": "A4_error_handling_api",
+      "passed": true,
+      "message": "API调用测试成功，耗时: 0.08ms",
+      "timestamp": "2025-09-23T09:55:06.620631"
+    },
+    {
+      "name": "B1_stock_list_retrieval",
+      "passed": true,
+      "message": "AKShare调用成功，数据量: 250，耗时: 1510.00ms",
+      "timestamp": "2025-09-23T09:55:06.620743"
+    },
+    {
+      "name": "B2_individual_stock_data",
+      "passed": false,
+      "message": "AKShare测试失败: can't multiply sequence by non-int of type 'float'",
+      "timestamp": "2025-09-23T09:55:06.620750"
+    },
+    {
+      "name": "B3_financial_data",
+      "passed": true,
+      "message": "AKShare调用成功，数据量: 30，耗时: 1510.00ms",
+      "timestamp": "2025-09-23T09:55:06.620833"
+    },
+    {
+      "name": "C1_watchlist_priority_processing",
+      "passed": true,
+      "message": "批处理成功，成功率: 80.0%，耗时: 2000.00ms",
+      "timestamp": "2025-09-23T09:55:06.620952"
+    },
+    {
+      "name": "C2_akshare_data_sync",
+      "passed": true,
+      "message": "批处理成功，成功率: 90.0%，耗时: 2000.00ms",
+      "timestamp": "2025-09-23T09:55:06.621007"
+    },
+    {
+      "name": "D1_document_vectorization",
+      "passed": true,
+      "message": "RAG操作成功，向量数: 5，耗时: 1000.00ms",
+      "timestamp": "2025-09-23T09:55:06.623087"
+    },
+    {
+      "name": "D2_semantic_search_query",
+      "passed": true,
+      "message": "RAG操作成功，向量数: 3，耗时: 1000.00ms",
+      "timestamp": "2025-09-23T09:55:06.623149"
+    },
+    {
+      "name": "D3_embedding_processing",
+      "passed": true,
+      "message": "RAG操作成功，向量数: 8，耗时: 1000.00ms",
+      "timestamp": "2025-09-23T09:55:06.623210"
+    },
+    {
+      "name": "e2e_flow_test",
+      "passed": true,
+      "message": "端到端流程测试成功，总耗时: 0.31ms",
+      "timestamp": "2025-09-23T09:55:06.623528"
+    },
+    {
+      "name": "concurrent_logging_test",
+      "passed": true,
+      "message": "并发测试成功，20个请求，耗时: 190.92ms，吞吐量: 104.75 req/s",
+      "timestamp": "2025-09-23T09:55:06.814466"
+    },
+    {
+      "name": "rss_monitoring_check",
+      "passed": true,
+      "message": "RSS监控检查完成，文件检查: 3/4",
+      "timestamp": "2025-09-23T09:55:06.830867"
+    },
+    {
+      "name": "watchlist_batch_check",
+      "passed": true,
+      "message": "自选股批处理检查完成，文件检查: 5/6",
+      "timestamp": "2025-09-23T09:55:06.843646"
+    },
+    {
+      "name": "log_files_verification",
+      "passed": true,
+      "message": "日志文件完整性: 250.0% (20/8)",
+      "timestamp": "2025-09-23T09:55:06.844662"
+    },
+    {
+      "name": "log_content_verification",
+      "passed": true,
+      "message": "日志内容有效性: 100.0% (12/12)",
+      "timestamp": "2025-09-23T09:55:06.853791"
+    },
+    {
+      "name": "performance_analysis",
+      "passed": true,
+      "message": "性能分析完成，成功率: 86.4%，执行时间: 0.27s",
+      "timestamp": "2025-09-23T09:55:06.853851"
+    }
+  ],
+  "log_files_generated": [
+    "/home/wyatt/prism2/logs/api_backend_20250923_095450.log",
+    "/home/wyatt/prism2/logs/api_backend_20250923_095506.log",
+    "/home/wyatt/prism2/logs/api_backend_20250923_095355.log",
+    "/home/wyatt/prism2/logs/api_backend_20250923_093105.log",
+    "/home/wyatt/prism2/logs/api_backend_20250923_093105.json",
+    "/home/wyatt/prism2/logs/akshare_service_20250923_093105.log",
+    "/home/wyatt/prism2/logs/akshare_service_20250923_095450.log",
+    "/home/wyatt/prism2/logs/akshare_service_20250923_095355.log",
+    "/home/wyatt/prism2/logs/akshare_service_20250923_095506.log",
+    "/home/wyatt/prism2/logs/akshare_service_20250923_093105.json",
+    "/home/wyatt/prism2/logs/batch_processor_20250923_095450.log",
+    "/home/wyatt/prism2/logs/batch_processor_20250923_093105.log",
+    "/home/wyatt/prism2/logs/batch_processor_20250923_095506.log",
+    "/home/wyatt/prism2/logs/batch_processor_20250923_095355.log",
+    "/home/wyatt/prism2/logs/batch_processor_20250923_093105.json",
+    "/home/wyatt/prism2/logs/rag_service_20250923_095506.log",
+    "/home/wyatt/prism2/logs/rag_service_20250923_093105.log",
+    "/home/wyatt/prism2/logs/rag_service_20250923_095355.log",
+    "/home/wyatt/prism2/logs/rag_service_20250923_095450.log",
+    "/home/wyatt/prism2/logs/rag_service_20250923_093105.json"
+  ],
+  "performance_metrics": {
+    "total_execution_time_seconds": 0.268252,
+    "tests_per_second": 82.01243606757825,
+    "success_rate_percentage": 86.36363636363636,
+    "total_tests_executed": 22,
+    "passed_tests": 19,
+    "failed_tests": 3,
+    "log_files_generated_count": 20
+  },
+  "automated_batch_status": {
+    "rss_monitoring": {
+      "isolated_rss_monitor.py": true,
+      "start_isolated_rss.sh": true,
+      "stop_isolated_rss.sh": true,
+      "rss_process_running": false
+    },
+    "watchlist_processing": {
+      "watchlist_processor.py": true,
+      "watchlist_service.py": true,
+      "watchlist.py": true,
+      "batch_config.yaml": true,
+      "scheduler.py": true,
+      "batch_process_running": false
+    }
+  }
+}

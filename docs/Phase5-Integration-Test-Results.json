@@ -1,0 +1,41 @@
+{
+  "test_time": "2025-09-24 15:20:19",
+  "tests": {
+    "Enhanced Dashboard API": {
+      "success": true,
+      "details": "成功获取数据",
+      "duration": 0.04020857810974121,
+      "status": "✅ PASS"
+    },
+    "RAG System (ChromaDB)": {
+      "success": true,
+      "details": "ChromaDB连接正常",
+      "duration": 0.007610797882080078,
+      "status": "✅ PASS"
+    },
+    "Ollama Service": {
+      "success": true,
+      "details": "版本0.12.1, 可用模型: qwen2.5:7b, qwen2.5:14b",
+      "duration": 0.0059735774993896484,
+      "status": "✅ PASS"
+    },
+    "Open WebUI Interface": {
+      "success": true,
+      "details": "Web界面可访问",
+      "duration": 0.010558366775512695,
+      "status": "✅ PASS"
+    },
+    "AI Model Functionality": {
+      "success": true,
+      "details": "AI回答正常(190字符)",
+      "duration": 18.535013675689697,
+      "status": "✅ PASS"
+    }
+  },
+  "summary": {
+    "total_tests": 5,
+    "passed_tests": 5,
+    "failed_tests": 0,
+    "success_rate": 100.0
+  }
+}

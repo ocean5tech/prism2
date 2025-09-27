@@ -1,0 +1,61 @@
+{
+  "test_type": "REAL_DATA_SOURCE_TEST",
+  "test_principle": "严格禁止模拟数据，只使用真实数据源",
+  "start_time": "2025-09-23T11:29:42.182201",
+  "end_time": "2025-09-23T11:30:04.074168",
+  "duration_seconds": 21.891955,
+  "total_tests": 6,
+  "passed_tests": 4,
+  "failed_tests": 2,
+  "success_rate": 66.66666666666666,
+  "real_data_sources": [
+    "AKShare真实API",
+    "真实股票数据库",
+    "真实网络连接",
+    "真实文件系统"
+  ],
+  "test_results": [
+    {
+      "name": "akshare_connectivity",
+      "passed": true,
+      "message": "真实获取 5431 只股票",
+      "timestamp": "2025-09-23T11:30:03.922622",
+      "data_source": "REAL"
+    },
+    {
+      "name": "real_stock_list",
+      "passed": true,
+      "message": "真实获取 5431 只股票，耗时 149.82ms",
+      "timestamp": "2025-09-23T11:30:04.072642",
+      "data_source": "REAL"
+    },
+    {
+      "name": "real_historical_data",
+      "passed": false,
+      "message": "真实数据获取失败: 'EnhancedAKShareService' object has no attribute 'get_stock_historical_data'",
+      "timestamp": "2025-09-23T11:30:04.072670",
+      "data_source": "REAL"
+    },
+    {
+      "name": "real_financial_data",
+      "passed": false,
+      "message": "真实数据获取失败: 'EnhancedAKShareService' object has no attribute 'get_stock_financial_data'",
+      "timestamp": "2025-09-23T11:30:04.072680",
+      "data_source": "REAL"
+    },
+    {
+      "name": "real_api_股票搜索API",
+      "passed": true,
+      "message": "真实API调用日志记录成功，耗时 0.00ms",
+      "timestamp": "2025-09-23T11:30:04.072893",
+      "data_source": "REAL"
+    },
+    {
+      "name": "real_api_股票详情API",
+      "passed": true,
+      "message": "真实API调用日志记录成功，耗时 0.00ms",
+      "timestamp": "2025-09-23T11:30:04.072952",
+      "data_source": "REAL"
+    }
+  ]
+}

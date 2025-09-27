@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "collection_time": "2025-09-23T14:50:46.796170",
+    "total_articles": 9,
+    "sources_count": 1,
+    "translated_articles": 9,
+    "stats": {
+      "total_articles": 9,
+      "successful_translations": 9,
+      "failed_translations": 0,
+      "cache_hits": 0,
+      "rss_errors": 4
+    }
+  },
+  "articles": [
+    {
+      "id": "9f3ee5b123a60863ff6fba9516bd61ce",
+      "title": "Argentina’s Milei to meet Trump for talks on US financial lifeline",
+      "content": "Treasury secretary Scott Bessent said on Monday that ‘all options’ were on the table",
+      "link": "https://www.ft.com/content/5f2b2c51-b8ed-456d-9135-8d8027f528e3",
+      "source": "Financial Times",
+      "published": "Tue, 23 Sep 2025 04:01:07 GMT",
+      "importance_score": 5.5,
+      "collected_at": "2025-09-23T14:50:44.578642",
+      "translated": true,
+      "translated_title": "[翻译] Argentina’s Milei to meet Trump for talks on US financial lifeline",
+      "translated_content": "[翻译] Treasury secretary Scott Bessent said on Monday that ‘all options’ were on the table",
+      "original_language": "en"
+    },
+    {
+      "id": "918b26d747c12bfcbbe94c1eda73c7c4",
+      "title": "Can the UN save itself from irrelevance?",
+      "content": "As the organisation turns 80, wars are raging in Ukraine, Gaza and Sudan, its core ideas are in tatters and the world no longer seems to be listening",
+      "link": "https://www.ft.com/content/ef26562c-4534-473e-abc9-bda24e1f58da",
+      "source": "Financial Times",
+      "published": "Tue, 23 Sep 2025 04:00:18 GMT",
+      "importance_score": 5.0,
+      "collected_at": "2025-09-23T14:50:44.578869",
+      "translated": true,
+      "translated_title": "[翻译] Can the UN save itself from irrelevance?",
+      "translated_content": "[翻译] As the organisation turns 80, wars are raging in Ukraine, Gaza and Sudan, its core ideas are in tatters and the world no longer seems to be listening",
+      "original_language": "en"
+    },
+    {
+      "id": "0225233ad160400e28844e0e4b2608e8",
+      "title": "Trump’s H-1B visa turmoil threatens Indians’ American dream",
+      "content": "New $100,000 application fee sparks consternation in India’s IT sector and among those hoping to make careers in the US",
+      "link": "https://www.ft.com/content/0f84298c-4d27-4f23-80d4-2bce6a4c9282",
+      "source": "Financial Times",
+      "published": "Tue, 23 Sep 2025 04:00:18 GMT",
+      "importance_score": 5.5,
+      "collected_at": "2025-09-23T14:50:44.579171",
+      "translated": true,
+      "translated_title": "[翻译] Trump’s H-1B visa turmoil threatens Indians’ American dream",
+      "translated_content": "[翻译] New $100,000 application fee sparks consternation in India’s IT sector and among those hoping to make careers in the US",
+      "original_language": "en"
+    },
+    {
+      "id": "0a29abc53f926b5fc9e37b3e7d082c8b",
+      "title": "Are we on course to become a Little Brother society?",
+      "content": "Trust in our peers could be the casualty as surveillance technology becomes smaller, smarter and cheaper",
+      "link": "https://www.ft.com/content/9fca417e-f2db-4e5c-a252-66a15007e526",
+      "source": "Financial Times",
+      "published": "Tue, 23 Sep 2025 04:00:18 GMT",
+      "importance_score": 5.5,
+      "collected_at": "2025-09-23T14:50:44.579263",
+      "translated": true,
+      "translated_title": "[翻译] Are we on course to become a Little Brother society?",
+      "translated_content": "[翻译] Trust in our peers could be the casualty as surveillance technology becomes smaller, smarter and cheaper",
+      "original_language": "en"
+    },
+    {
+      "id": "b0c72e0d4b80356800b85cb375a01ed6",
+      "title": "Lenders race to rescue car parts group as debt woes rattle markets",
+      "content": "First Brands considers bankruptcy as its finances worsen",
+      "link": "https://www.ft.com/content/003012bb-43ef-426a-8631-4ef6bb09c229",
+      "source": "Financial Times",
+      "published": "Mon, 22 Sep 2025 23:30:02 GMT",
+      "importance_score": 6.0,
+      "collected_at": "2025-09-23T14:50:44.579345",
+      "translated": true,
+      "translated_title": "[翻译] Lenders race to rescue car parts group as debt woes rattle markets",
+      "translated_content": "[翻译] First Brands considers bankruptcy as its finances worsen",
+      "original_language": "en"
+    },
+    {
+      "id": "7d8694d0a2b70f6988695f55c7b9cd38",
+      "title": "Disney to return Kimmel’s show to airwaves after brief suspension",
+      "content": "Company says comments on Charlie Kirk killing were ‘insensitive’ but broadcast is to resume after talks with host",
+      "link": "https://www.ft.com/content/89344efb-0418-48f1-b0c0-cb5e16dd569f",
+      "source": "Financial Times",
+      "published": "Mon, 22 Sep 2025 21:26:14 GMT",
+      "importance_score": 5.5,
+      "collected_at": "2025-09-23T14:50:44.579403",
+      "translated": true,
+      "translated_title": "[翻译] Disney to return Kimmel’s show to airwaves after brief suspension",
+      "translated_content": "[翻译] Company says comments on Charlie Kirk killing were ‘insensitive’ but broadcast is to resume after talks with host",
+      "original_language": "en"
+    },
+    {
+      "id": "0e451cc0ab006f4654de2f94ebc12f10",
+      "title": "Supreme Court decision on Trump’s firing of Cook looms over the Fed",
+      "content": "President could purge other top officials if justices allow him to remove the central banker",
+      "link": "https://www.ft.com/content/c7b91795-46d7-4377-8830-8f21c89af0c6",
+      "source": "Financial Times",
+      "published": "Mon, 22 Sep 2025 20:19:29 GMT",
+      "importance_score": 5.5,
+      "collected_at": "2025-09-23T14:50:44.579454",
+      "translated": true,
+      "translated_title": "[翻译] Supreme Court decision on Trump’s firing of Cook looms over the Fed",
+      "translated_content": "[翻译] President could purge other top officials if justices allow him to remove the central banker",
+      "original_language": "en"
+    },
+    {
+      "id": "83f6c37ed9ef43b589456e2cbb3ddc1d",
+      "title": "America’s top companies keep talking about AI — but can’t explain the upsides",
+      "content": "FT analysis of hundreds of filings suggest the S&P 500 businesses are clearer about the risks than benefits",
+      "link": "https://www.ft.com/content/e93e56df-dd9b-40c1-b77a-dba1ca01e473",
+      "source": "Financial Times",
+      "published": "Tue, 23 Sep 2025 04:00:10 GMT",
+      "importance_score": 5.5,
+      "collected_at": "2025-09-23T14:50:44.579521",
+      "translated": true,
+      "translated_title": "[翻译] America’s top companies keep talking about AI — but can’t explain the upsides",
+      "translated_content": "[翻译] FT analysis of hundreds of filings suggest the S&P 500 businesses are clearer about the risks than benefits",
+      "original_language": "en"
+    },
+    {
+      "id": "e576e05ea397524e5fc1643d2e0593b4",
+      "title": "Nvidia to invest up to $100bn in OpenAI",
+      "content": "Partnership will support huge build-out of data centres for artificial intelligence",
+      "link": "https://www.ft.com/content/d3caeac1-def8-45ae-b56b-e34c7c435ccc",
+      "source": "Financial Times",
+      "published": "Mon, 22 Sep 2025 22:57:51 GMT",
+      "importance_score": 5.0,
+      "collected_at": "2025-09-23T14:50:44.579570",
+      "translated": true,
+      "translated_title": "[翻译] Nvidia to invest up to $100bn in OpenAI",
+      "translated_content": "[翻译] Partnership will support huge build-out of data centres for artificial intelligence",
+      "original_language": "en"
+    }
+  ]
+}

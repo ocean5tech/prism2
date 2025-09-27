@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "collection_time": "2025-09-17T22:23:01.256056",
+    "total_articles": 10,
+    "english_articles": 5,
+    "chinese_articles": 5,
+    "test_purpose": "language_processing_validation",
+    "processing_statistics": {
+      "english": {
+        "detection_rate": 100.0,
+        "translation_success_rate": 100.0
+      },
+      "chinese": {
+        "detection_rate": 100.0,
+        "skip_translation_rate": 40.0
+      },
+      "mixed": {
+        "language_detection_accuracy": 25.0,
+        "translation_decision_accuracy": 75.0
+      }
+    }
+  },
+  "articles": [
+    {
+      "id": "en_001",
+      "title": "Federal Reserve Maintains Interest Rates",
+      "content": "The Federal Reserve announced today that it will maintain current interest rates amid ongoing economic uncertainty. The decision was unanimous among voting members, citing inflation concerns and labor market stability as key factors.",
+      "source": "Financial News",
+      "importance_score": 9.0,
+      "original_language": "en",
+      "translated_title": "[翻译] Federal Reserve Maintains Interest Rates",
+      "translated_content": "[翻译] The Federal Reserve announced today that it will maintain current interest rates amid ongoing economic uncertainty. The decision was unanimous among voting members, citing inflation concerns and labor market stability as key factors.",
+      "detected_language": "en",
+      "translation_needed": true,
+      "translation_success": true
+    },
+    {
+      "id": "en_002",
+      "title": "Tech Stocks Rally on Strong Earnings",
+      "content": "Major technology companies reported better-than-expected quarterly earnings, leading to a significant rally in tech stocks. Apple, Microsoft, and Google all exceeded analyst forecasts.",
+      "source": "Market Watch",
+      "importance_score": 7.5,
+      "original_language": "en",
+      "translated_title": "[翻译] Tech Stocks Rally on Strong Earnings",
+      "translated_content": "[翻译] Major technology companies reported better-than-expected quarterly earnings, leading to a significant rally in tech stocks. Apple, Microsoft, and Google all exceeded analyst forecasts.",
+      "detected_language": "en",
+      "translation_needed": true,
+      "translation_success": true
+    },
+    {
+      "id": "en_003",
+      "title": "Oil Prices Surge Amid Supply Concerns",
+      "content": "Crude oil prices jumped 4% in early trading as geopolitical tensions in the Middle East raised concerns about global supply disruptions. Brent crude reached $85 per barrel.",
+      "source": "Energy Report",
+      "importance_score": 8.2,
+      "original_language": "en",
+      "translated_title": "[翻译] Oil Prices Surge Amid Supply Concerns",
+      "translated_content": "[翻译] Crude oil prices jumped 4% in early trading as geopolitical tensions in the Middle East raised concerns about global supply disruptions. Brent crude reached $85 per barrel.",
+      "detected_language": "en",
+      "translation_needed": true,
+      "translation_success": true
+    },
+    {
+      "id": "en_004",
+      "title": "Cryptocurrency Market Shows Mixed Signals",
+      "content": "Bitcoin and Ethereum displayed divergent trends as regulatory clarity remains elusive. While Bitcoin gained 2%, Ethereum fell 1.5% amid concerns over network upgrades.",
+      "source": "Crypto News",
+      "importance_score": 6.8,
+      "original_language": "en",
+      "translated_title": "[翻译] Cryptocurrency Market Shows Mixed Signals",
+      "translated_content": "[翻译] Bitcoin and Ethereum displayed divergent trends as regulatory clarity remains elusive. While Bitcoin gained 2%, Ethereum fell 1.5% amid concerns over network upgrades.",
+      "detected_language": "en",
+      "translation_needed": true,
+      "translation_success": true
+    },
+    {
+      "id": "en_005",
+      "title": "Housing Market Faces Affordability Crisis",
+      "content": "Rising mortgage rates and home prices have created an affordability crisis in major metropolitan areas. First-time homebuyers are increasingly priced out of the market.",
+      "source": "Real Estate Today",
+      "importance_score": 7.9,
+      "original_language": "en",
+      "translated_title": "[翻译] Housing Market Faces Affordability Crisis",
+      "translated_content": "[翻译] Rising mortgage rates and home prices have created an affordability crisis in major metropolitan areas. First-time homebuyers are increasingly priced out of the market.",
+      "detected_language": "en",
+      "translation_needed": true,
+      "translation_success": true
+    },
+    {
+      "id": "zh_001",
+      "title": "央行宣布降准释放流动性",
+      "content": "中国人民银行今日宣布下调存款准备金率0.5个百分点，此举将向市场释放约1万亿元流动性资金，旨在支持实体经济发展和缓解企业融资压力。",
+      "source": "财经日报",
+      "importance_score": 9.2,
+      "original_language": "zh-cn",
+      "translated_title": "[翻译] 央行宣布降准释放流动性",
+      "translated_content": "中国人民银行今日宣布下调存款准备金率0.5个百分点，此举将向市场释放约1万亿元流动性资金，旨在支持实体经济发展和缓解企业融资压力。",
+      "detected_language": "ko",
+      "translation_needed": true,
+      "translation_success": true
+    },
+    {
+      "id": "zh_002",
+      "title": "A股三大指数集体上涨",
+      "content": "今日A股市场表现强劲，上证综指、深证成指、创业板指均收红。科技股和新能源板块领涨，市场成交量较昨日放大明显。",
+      "source": "证券时报",
+      "importance_score": 7.8,
+      "original_language": "zh-cn",
+      "translated_title": "[翻译] A股三大指数集体上涨",
+      "translated_content": "今日A股市场表现强劲，上证综指、深证成指、创业板指均收红。科技股和新能源板块领涨，市场成交量较昨日放大明显。",
+      "detected_language": "ko",
+      "translation_needed": true,
+      "translation_success": true
+    },
+    {
+      "id": "zh_003",
+      "title": "新能源汽车销量持续增长",
+      "content": "据中汽协数据显示，本月新能源汽车销量同比增长35%，其中纯电动汽车占比超过80%。比亚迪、特斯拉等品牌表现亮眼。",
+      "source": "汽车之家",
+      "importance_score": 8.1,
+      "original_language": "zh-cn",
+      "translated_title": "[翻译] 新能源汽车销量持续增长",
+      "translated_content": "据中汽协数据显示，本月新能源汽车销量同比增长35%，其中纯电动汽车占比超过80%。比亚迪、特斯拉等品牌表现亮眼。",
+      "detected_language": "ko",
+      "translation_needed": true,
+      "translation_success": true
+    },
+    {
+      "id": "zh_004",
+      "title": "房地产市场政策持续优化",
+      "content": "多地出台房地产支持政策，包括降低首付比例、放宽限购条件等。专家认为这将有助于房地产市场企稳回升。",
+      "source": "地产中国",
+      "importance_score": 7.6,
+      "original_language": "zh-cn",
+      "translated_title": "房地产市场政策持续优化",
+      "translated_content": "多地出台房地产支持政策，包括降低首付比例、放宽限购条件等。专家认为这将有助于房地产市场企稳回升。",
+      "detected_language": "zh-cn",
+      "translation_needed": false,
+      "translation_success": true
+    },
+    {
+      "id": "zh_005",
+      "title": "人工智能产业迎来新突破",
+      "content": "国内多家科技公司在人工智能领域取得重要进展，大模型技术不断完善，应用场景持续拓展，为经济发展注入新动能。",
+      "source": "科技日报",
+      "importance_score": 8.5,
+      "original_language": "zh-cn",
+      "translated_title": "人工智能产业迎来新突破",
+      "translated_content": "国内多家科技公司在人工智能领域取得重要进展，大模型技术不断完善，应用场景持续拓展，为经济发展注入新动能。",
+      "detected_language": "zh-cn",
+      "translation_needed": false,
+      "translation_success": true
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "collection_time": "2025-09-17T22:04:02.919027",
+    "total_articles": 4,
+    "translated_articles": 3,
+    "test_data": true
+  },
+  "articles": [
+    {
+      "id": "test_001",
+      "title": "Federal Reserve Announces Interest Rate Decision",
+      "content": "The Federal Reserve announced its latest interest rate decision today, maintaining rates at current levels. The decision comes amid ongoing economic uncertainty and inflationary pressures. Market analysts expect this decision to impact stock markets significantly.",
+      "link": "https://example.com/fed-rates",
+      "source": "Test Financial News",
+      "published": "2025-09-17T14:30:00Z",
+      "importance_score": 8.5,
+      "collected_at": "2025-09-17T22:04:02.668287",
+      "translated": true,
+      "translated_title": "[翻译] Federal Reserve Announces Interest Rate Decision",
+      "translated_content": "[翻译] The Federal Reserve announced its latest interest rate decision today, maintaining rates at current levels. The decision comes amid ongoing economic uncertainty and inflationary pressures. Market analysts expect this decision to impact stock markets significantly.",
+      "original_language": "en"
+    },
+    {
+      "id": "test_002",
+      "title": "Stock Markets Rally on Tech Earnings",
+      "content": "Major stock indices surged following better-than-expected earnings reports from leading technology companies. The Nasdaq rose 2.5% while the S&P 500 gained 1.8%. Investors are showing renewed confidence in the tech sector amid improving fundamentals.",
+      "link": "https://example.com/stock-rally",
+      "source": "Market Watch",
+      "published": "2025-09-17T15:45:00Z",
+      "importance_score": 7.2,
+      "collected_at": "2025-09-17T22:04:02.668304",
+      "translated": true,
+      "translated_title": "[翻译] Stock Markets Rally on Tech Earnings",
+      "translated_content": "[翻译] Major stock indices surged following better-than-expected earnings reports from leading technology companies. The Nasdaq rose 2.5% while the S&P 500 gained 1.8%. Investors are showing renewed confidence in the tech sector amid improving fundamentals.",
+      "original_language": "en"
+    },
+    {
+      "id": "test_003",
+      "title": "中国央行宣布新的货币政策",
+      "content": "中国人民银行今日宣布了新的货币政策措施，旨在支持实体经济发展。此次政策调整包括降准和定向降息，预计将释放约5000亿元流动性。",
+      "link": "https://example.com/pboc-policy",
+      "source": "财经新闻",
+      "published": "2025-09-17T16:00:00Z",
+      "importance_score": 9.0,
+      "collected_at": "2025-09-17T22:04:02.668307",
+      "translated": false,
+      "translated_title": "中国央行宣布新的货币政策",
+      "translated_content": "中国人民银行今日宣布了新的货币政策措施，旨在支持实体经济发展。此次政策调整包括降准和定向降息，预计将释放约5000亿元流动性。",
+      "original_language": "zh-cn"
+    },
+    {
+      "id": "test_004",
+      "title": "Oil Prices Surge on Supply Concerns",
+      "content": "Crude oil prices jumped 4% amid concerns about supply disruptions in the Middle East. Brent crude reached $85 per barrel, while West Texas Intermediate climbed to $82. Energy stocks led market gains.",
+      "link": "https://example.com/oil-prices",
+      "source": "Energy News",
+      "published": "2025-09-17T17:20:00Z",
+      "importance_score": 6.8,
+      "collected_at": "2025-09-17T22:04:02.668309",
+      "translated": true,
+      "translated_title": "[翻译] Oil Prices Surge on Supply Concerns",
+      "translated_content": "[翻译] Crude oil prices jumped 4% amid concerns about supply disruptions in the Middle East. Brent crude reached $85 per barrel, while West Texas Intermediate climbed to $82. Energy stocks led market gains.",
+      "original_language": "en"
+    }
+  ]
+}

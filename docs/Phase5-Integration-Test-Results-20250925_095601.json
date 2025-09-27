@@ -1,0 +1,102 @@
+{
+  "test_time": "2025-09-25 09:56:00",
+  "tests": {
+    "Enhanced Dashboard API": {
+      "success": true,
+      "details": "API响应正常，架构: Redis → PostgreSQL → AKShare",
+      "duration": 0.011174917221069336,
+      "status": "✅ PASS",
+      "evidence": "HTTP 200, 响应时间: 0.011s"
+    },
+    "ChromaDB RAG系统": {
+      "success": true,
+      "details": "RAG系统心跳正常",
+      "duration": 0.060405731201171875,
+      "status": "✅ PASS",
+      "evidence": "HTTP 200, 响应时间: 0.060s"
+    },
+    "Ollama LLM服务": {
+      "success": true,
+      "details": "版本: 0.12.1",
+      "duration": 0.04666900634765625,
+      "status": "✅ PASS",
+      "evidence": "HTTP 200, 响应时间: 0.047s"
+    },
+    "Open WebUI界面": {
+      "success": true,
+      "details": "Web界面可访问",
+      "duration": 0.011484384536743164,
+      "status": "✅ PASS",
+      "evidence": "HTTP 200, 响应时间: 0.011s"
+    },
+    "股票基础信息工具(000546)": {
+      "success": false,
+      "details": "基础信息获取异常",
+      "duration": 0.019596338272094727,
+      "status": "❌ FAIL",
+      "evidence": "⚠️ 000546 基础信息暂时无法获取，API连接正常，数据源: {'redis': [], 'postgresql': [], 'akshare': []}。可能需要从AKShare补充数据。..."
+    },
+    "股票价格工具(000546)": {
+      "success": true,
+      "details": "成功获取价格信息",
+      "duration": 0.0048215389251708984,
+      "status": "✅ PASS",
+      "evidence": "📈 000546 实时价格 (数据来源: Enhanced Dashboard API)\n\n• 最新价格: 4.80 元\n• 开盘价格: 4.86 元\n• 最高价格: 4.90 元\n• 最低价格: 4..."
+    },
+    "股票财务工具(000546)": {
+      "success": true,
+      "details": "成功获取财务信息",
+      "duration": 0.007243633270263672,
+      "status": "✅ PASS",
+      "evidence": "💰 000546 财务数据 (数据来源: Enhanced Dashboard API)\n\n• 营业总收入: 4188443836.95\n• 归母净利润: -49596929.73\n• 净资产收益率(..."
+    },
+    "综合分析工具(000546)": {
+      "success": true,
+      "details": "成功生成综合分析",
+      "duration": 0.040004730224609375,
+      "status": "✅ PASS",
+      "evidence": "报告长度: 552字符"
+    },
+    "系统状态检查工具": {
+      "success": true,
+      "details": "系统状态检查完成，2个组件正常",
+      "duration": 0.007183074951171875,
+      "status": "✅ PASS",
+      "evidence": "状态报告长度: 434字符"
+    },
+    "API数据权威性验证": {
+      "success": true,
+      "details": "API返回格式符合规范: success=True",
+      "duration": 0,
+      "status": "✅ PASS",
+      "evidence": "timestamp: 2025-09-25T09:56:00.265920, sources: ['redis', 'postgresql', 'akshare']"
+    },
+    "API数据内容验证": {
+      "success": true,
+      "details": "API返回了3个数据类型",
+      "duration": 0,
+      "status": "✅ PASS",
+      "evidence": "数据类型: ['basic', 'kline', 'financial']"
+    },
+    "Redis缓存性能测试": {
+      "success": true,
+      "details": "性能提升: 1.70x",
+      "duration": 0.015009403228759766,
+      "status": "✅ PASS",
+      "evidence": "第1次: 0.025s, 第2次: 0.015s"
+    },
+    "Redis缓存命中验证": {
+      "success": false,
+      "details": "缓存命中情况改善",
+      "duration": 0,
+      "status": "❌ FAIL",
+      "evidence": "第1次Redis源: 0, 第2次: 0"
+    }
+  },
+  "summary": {
+    "total_tests": 13,
+    "passed_tests": 11,
+    "failed_tests": 2,
+    "success_rate": 84.61538461538461
+  }
+}

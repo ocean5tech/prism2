@@ -1,0 +1,28 @@
+// startup.js 修复方案
+// 在 startPythonService 方法中添加健康检查
+
+async startPythonService(service) {
+  // ... 现有启动逻辑 ...
+
+  // 启动服务后添加健康检查
+  if (service.healthCheck) {
+    this.log(`🔍 执行健康检查...`, COLORS.yellow);
+
+    for (let i = 0; i < 30; i++) {
+      await this.sleep(2000);
+
+      const health = this.executeCommand(service.healthCheck, { silent: true });
+      if (health.success) {
+        this.log(`✅ ${service.name} 健康检查通过`, COLORS.green);
+        return true;
+      }
+
+      this.verbose_log(`健康检查失败 (${i+1}/30): ${health.error}`);
+    }
+
+    this.log(`❌ ${service.name} 健康检查失败`, COLORS.red);
+    return false; // 明确返回失败，而不是true
+  }
+
+  // ... 其余逻辑 ...
+}

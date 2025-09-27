@@ -1,0 +1,220 @@
+{
+  "test_info": {
+    "test_time": "2025-09-22T20:50:04.734201",
+    "test_stocks": [
+      "002384",
+      "002617",
+      "002371"
+    ],
+    "stock_names": {
+      "002384": "东山精密",
+      "002617": "露笑科技",
+      "002371": "北方华创"
+    }
+  },
+  "batch_processing": {
+    "success": true,
+    "result": {
+      "watchlist_id": 16,
+      "watchlist_name": "三股票批处理测试",
+      "result": {
+        "processed": 12,
+        "success": 12,
+        "failed": 0,
+        "skipped": 0,
+        "failed_items": [],
+        "cache_hits": 0,
+        "cache_misses": 12
+      },
+      "timestamp": "2025-09-22 20:50:04.675916"
+    }
+  },
+  "data_storage_check": {
+    "redis_cache": {
+      "002384(东山精密)": {
+        "financial": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "announcements": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "shareholders": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "longhubang": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        }
+      },
+      "002617(露笑科技)": {
+        "financial": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "announcements": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "shareholders": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "longhubang": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        }
+      },
+      "002371(北方华创)": {
+        "financial": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "announcements": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "shareholders": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        },
+        "longhubang": {
+          "exists": false,
+          "data_size": 0,
+          "has_content": false
+        }
+      }
+    },
+    "postgresql_db": {
+      "002384(东山精密)": {
+        "stock_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "financial_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "announcement_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "shareholder_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "longhubang_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        }
+      },
+      "002617(露笑科技)": {
+        "stock_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "financial_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "announcement_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "shareholder_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "longhubang_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        }
+      },
+      "002371(北方华创)": {
+        "stock_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "financial_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "announcement_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "shareholder_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        },
+        "longhubang_data": {
+          "table_exists": false,
+          "error": "0",
+          "record_count": 0,
+          "has_data": false
+        }
+      }
+    },
+    "rag_vectors": {
+      "002384(东山精密)": {
+        "embedding_exists": false,
+        "vector_count": 0,
+        "last_update": null,
+        "note": "RAG服务检查功能待实现"
+      },
+      "002617(露笑科技)": {
+        "embedding_exists": false,
+        "vector_count": 0,
+        "last_update": null,
+        "note": "RAG服务检查功能待实现"
+      },
+      "002371(北方华创)": {
+        "embedding_exists": false,
+        "vector_count": 0,
+        "last_update": null,
+        "note": "RAG服务检查功能待实现"
+      }
+    }
+  }
+}
